@@ -1,26 +1,32 @@
+import java.sql.Date;
 import java.sql.Time;
 
 public interface RequestInterface {
 
-    /* Getters and Setters for the request ID*/
-    public void setID();
+    /* Returns the ID of the request*/
     public int getID();
+    /* Sets the ID of the request*/
+    public void setID(int ID);
 
-    /* Getters and Setters for the date the request was made*/
-    public String getDate();
-    public void setDate();
+    /* Returns the date the request was made*/
+    public Date getDate();
+    /* Sets the date the request was made*/
+    public void setDate(Date date);
 
-    /* Getters and Setters for the time which the request was made*/
+    /* Returns the time the request was made*/
     public Time getTime();
-    public void setTime();
+    /* Sets the time the request was made*/
+    public void setTime(Time time);
 
-    /* Getters and Setters for the description of the request*/
+    /* Returns the description of the request*/
     public String getDescription();
-    public void setDescription();
+    /* Sets the description of the request*/
+    public void setDescription(String description);
 
-    /* Getters and Setters for the status of the request*/
+    /* Returns the status of the request*/
     public String getStatus();
-    public void setStatus();
+    /* Sets the status of the request*/
+    public void setStatus(String status);
 
     
 }
