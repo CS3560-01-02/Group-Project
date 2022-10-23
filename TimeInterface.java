@@ -63,25 +63,25 @@ public interface TimeInterface {
     public void getBreakOut();
 
     /**
-     * 
+     * Updates the shiftIn attribute with a new time
      * @param newTime // new time that will replace the previous one
      */
     public void updateShiftIn(Time newTime); 
 
     /**
-     * 
+     * Updates the shiftOut attribute with a new time
      * @param newTime // new time that will replace the previous one
      */
     public void updateShiftOut(Time newTime);
 
     /**
-     * 
+     * Updates the breakIn attribute with a new time
      * @param newTime // new time that will replace the previous one
      */
     public void updateBreakIn(Time newTime);
 
     /**
-     * 
+     * Updates the breakOUt attribute with a new time
      * @param newTime // new time that will replace the previous one
      */
     public void updateBreakOut(Time newTime);
