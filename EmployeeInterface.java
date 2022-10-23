@@ -17,31 +17,46 @@ public interface EmployeeInterface{
     /**Get Employee's ID */
     public void getID();
 
-    /**Set Employee's ID */
-    public void setID();
+    /**
+     * Set Employee's ID 
+     * @param ID The new ID.
+     */
+    public void setID(String ID);
 
     /**Get Employee's Name*/
     public void getName();
 
-    /**Set Employee's Name*/
-    public void setName();
+    /**
+     * Set Employee's Name
+     * @param name The new name.
+     */
+    public void setName(String name);
 
     /**Get Employee's phone number*/
     public void getPhoneNum();
 
-    /**Set Employee's phone number*/
-    public void setPhoneNum();
+    /**
+     * Set Employee's phone number
+     * @param number The new phone number.
+     */
+    public void setPhoneNum(String number);
 
     /**Get Employee's address*/
     public void getAddress();
 
-    /**Set Employee's address*/
-    public void setAddress();
+    /**
+     * Set Employee's address
+     * @param address The new address.
+     */
+    public void setAddress(String address);
 
     /**Get Employee's supervisor*/
     public void getSupervisor();
 
-    /**Set Employee's supervisor*/
-    public void setSupervisor();
+    /**
+     * Set Employee's supervisor
+     * @param supervisor The new supervisor.
+     */
+    public void setSupervisor(String supervisor);
 
 }
