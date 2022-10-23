@@ -10,7 +10,7 @@ public interface TimeInterface {
     public void setTimeID(String timeID);
 
     //* Gets the ID of Time object */
-    public void getTimeID();
+    public Time getTimeID();
 
     
     /**
@@ -20,7 +20,7 @@ public interface TimeInterface {
     public void setDate(Date currentDate);
 
     //* Gets the date of the Time object */
-    public void getDate();
+    public Time getDate();
 
 
     /**
@@ -30,7 +30,7 @@ public interface TimeInterface {
     public void setShiftIn(Time shiftIn);
 
     //* Gets the time saved in shiftIn  */
-    public void getShiftIn();
+    public Time getShiftIn();
 
 
     /**
@@ -40,7 +40,7 @@ public interface TimeInterface {
     public void setShiftOut(Time shiftOut);
 
     //* Gets the time saved in shiftOut  */
-    public void getShiftOut();
+    public Time getShiftOut();
 
 
     /**
@@ -50,7 +50,7 @@ public interface TimeInterface {
     public void setBreakIn(Time breakIn);
 
     //* Gets the time saved in breakIn  */
-    public void getBreakIn();
+    public Time getBreakIn();
 
 
     /**
@@ -60,7 +60,8 @@ public interface TimeInterface {
     public void setBreakOut(Time breakOut);
 
     //* Gets the time saved in breakOut  */
-    public void getBreakOut();
+    public Time getBreakOut();
+
 
     /**
      * Updates the shiftIn attribute with a new time
@@ -85,5 +86,6 @@ public interface TimeInterface {
      * @param newTime // new time that will replace the previous one
      */
     public void updateBreakOut(Time newTime);
+
 
 }
