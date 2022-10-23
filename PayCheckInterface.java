@@ -1,9 +1,9 @@
 import java.sql.Date;
 
 public interface PayCheckInterface {
-    
+
     /**Get ID of paycheck. */
-    public void getID();
+    public String getID();
 
     /**
      * Set ID of paycheck.
@@ -12,7 +12,7 @@ public interface PayCheckInterface {
     public void setID(String ID);
 
     /**Get date paycheck is sent. */
-    public void getDate();
+    public Date getDate();
     
     /**
      * Set date paycheck is sent.
@@ -21,7 +21,7 @@ public interface PayCheckInterface {
     public void setDate(Date date);
 
     /**Get paycheck in paycheck. */
-    public void getAmount();
+    public float getAmount();
     
     /**
      * Set paycheck amount.
@@ -30,7 +30,7 @@ public interface PayCheckInterface {
     public void setAmount(float amount);
 
     /**Get type of paycheck. */
-    public void getType();
+    public String getType();
     
     /**
      * Sets paycheck type

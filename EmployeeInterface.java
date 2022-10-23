@@ -15,7 +15,7 @@ public interface EmployeeInterface{
     public void breakOut();
 
     /**Get Employee's ID */
-    public void getID();
+    public String getID();
 
     /**
      * Set Employee's ID 
@@ -24,7 +24,7 @@ public interface EmployeeInterface{
     public void setID(String ID);
 
     /**Get Employee's Name*/
-    public void getName();
+    public String getName();
 
     /**
      * Set Employee's Name
@@ -33,7 +33,7 @@ public interface EmployeeInterface{
     public void setName(String name);
 
     /**Get Employee's phone number*/
-    public void getPhoneNum();
+    public String getPhoneNum();
 
     /**
      * Set Employee's phone number
@@ -42,7 +42,7 @@ public interface EmployeeInterface{
     public void setPhoneNum(String number);
 
     /**Get Employee's address*/
-    public void getAddress();
+    public String getAddress();
 
     /**
      * Set Employee's address
@@ -51,7 +51,7 @@ public interface EmployeeInterface{
     public void setAddress(String address);
 
     /**Get Employee's supervisor*/
-    public void getSupervisor();
+    public String getSupervisor();
 
     /**
      * Set Employee's supervisor
