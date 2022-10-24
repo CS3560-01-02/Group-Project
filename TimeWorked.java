@@ -2,6 +2,8 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class TimeWorked {
+
+    //Attributes
     private String timeID;
     private Date date;
     private Time shiftIn;

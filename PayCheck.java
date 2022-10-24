@@ -2,6 +2,7 @@ import java.sql.Date;
 
 public class PayCheck {
 
+    //Attributes
     private String ID;
     private Date date;
     private float amount;

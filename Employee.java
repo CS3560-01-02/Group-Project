@@ -1,4 +1,6 @@
 public class Employee{
+
+    //Attributes
     private String employeeID;
     private String name;
     private String phoneNum;
