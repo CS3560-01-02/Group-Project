@@ -1,6 +1,6 @@
 import java.sql.Date;
 
-public class JobPositionInterface {
+public class JobPosition {
 
     //Attributes
     int jobID;
