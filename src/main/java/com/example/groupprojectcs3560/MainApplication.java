@@ -8,10 +8,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("newFirst.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginWindow.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.TimeController">
     <children>
-        <Button fx:id="LogoutButton" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="27.0" prefWidth="140.0" text="Logout" />
+        <Button fx:id="LogoutButton" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
       <Button fx:id="SwitchToClockInOutScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefWidth="140.0" text="Clock In / Clock Out" />
       <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
       <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
