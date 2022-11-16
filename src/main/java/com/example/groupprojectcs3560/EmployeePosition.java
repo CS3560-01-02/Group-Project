@@ -1,7 +1,9 @@
+package com.example.groupprojectcs3560;
+
 import java.sql.Date;
 
 public class EmployeePosition {
-    
+
     //Attributes
     private String ID;
     private Date datePromoted;

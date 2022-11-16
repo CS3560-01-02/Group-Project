@@ -1,3 +1,5 @@
+package com.example.groupprojectcs3560;
+
 public class Employee{
 
     //Attributes
@@ -39,8 +41,8 @@ public class Employee{
     }
 
     /**
-     * Set Employee's ID 
-     * @param ID The new ID.
+     * Set Employee's ID
+     * @param employeeID The new ID.
      */
     public void setID(String employeeID){
         this.employeeID = employeeID;
@@ -66,7 +68,7 @@ public class Employee{
 
     /**
      * Set Employee's phone number
-     * @param number The new phone number.
+     * @param phoneNum The new phone number.
      */
     public void setPhoneNum(String phoneNum){
         this.phoneNum = phoneNum;
@@ -105,11 +107,10 @@ public class Employee{
 
     /**
      * Set Employee's supervisor
-     * @param supervisor The new supervisor.
+     * @param supervisorID The new supervisor.
      */
     public void setSupervisor(String supervisorID){
         this.supervisorID = supervisorID;
     }
-    
 
 }

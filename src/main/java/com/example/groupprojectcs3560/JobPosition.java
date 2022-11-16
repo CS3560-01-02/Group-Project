@@ -1,3 +1,5 @@
+package com.example.groupprojectcs3560;
+
 import java.sql.Date;
 
 public class JobPosition {
@@ -63,5 +65,5 @@ public class JobPosition {
     public void setEmploymentDate(Date date) {
 
     }
-    
+
 }

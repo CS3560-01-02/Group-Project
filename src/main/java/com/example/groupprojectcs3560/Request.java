@@ -1,3 +1,5 @@
+package com.example.groupprojectcs3560;
+
 import java.sql.Date;
 import java.sql.Time;
 
@@ -15,8 +17,8 @@ public class Request {
 
         return requestID;
     }
-    
-     /**
+
+    /**
      * Sets the ID of the request
      * @param ID the new ID of request.
      */
@@ -29,7 +31,7 @@ public class Request {
 
         return requestDate;
     }
-    
+
     /**
      * Sets the date of the request
      * @param date the new date of request.
@@ -43,8 +45,8 @@ public class Request {
 
         return requestTime;
     }
-    
-     /**
+
+    /**
      * Sets the time of the request
      * @param time the new time of request.
      */
@@ -57,7 +59,7 @@ public class Request {
 
         return description;
     }
-    
+
     /**
      * Sets the description of the request
      * @param description the new description of request.
@@ -71,7 +73,7 @@ public class Request {
 
         return status;
     }
-    
+
     /**
      * Sets the status of the request
      * @param status the new status of request.
@@ -80,5 +82,5 @@ public class Request {
         this.status = status;
     }
 
-    
+
 }

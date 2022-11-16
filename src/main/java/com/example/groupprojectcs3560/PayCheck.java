@@ -1,3 +1,5 @@
+package com.example.groupprojectcs3560;
+
 import java.sql.Date;
 
 public class PayCheck {
@@ -25,7 +27,7 @@ public class PayCheck {
     public Date getDate(){
         return date;
     }
-    
+
     /**
      * Set date paycheck is sent.
      * @param date The date of delivery.
@@ -38,7 +40,7 @@ public class PayCheck {
     public float getAmount(){
         return amount;
     }
-    
+
     /**
      * Set paycheck amount.
      * @param amount The amount of the paycheck.
@@ -51,7 +53,7 @@ public class PayCheck {
     public String getType(){
         return type;
     }
-    
+
     /**
      * Sets paycheck type
      * @param type The type of the paycheck.

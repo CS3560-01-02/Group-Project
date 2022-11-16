@@ -1,3 +1,5 @@
+package com.example.groupprojectcs3560;
+
 import java.sql.Date;
 import java.sql.Time;
 
@@ -24,7 +26,7 @@ public class TimeWorked {
         return this.timeID;
     }
 
-    
+
     /**
      * Records the current date 
      * @param date // Current date when called

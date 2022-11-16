@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#switchToScene2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.HelloController">
+    <children>
+        <Label layoutX="130.0" layoutY="14.0" prefHeight="82.0" prefWidth="342.0" text="This is Scene 1">
+            <font>
+                <Font size="53.0" />
+            </font></Label>
+        <Button layoutX="252.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchToScene2" text="Change Scenes" />
+    </children>
+</AnchorPane>
