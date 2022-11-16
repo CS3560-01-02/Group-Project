@@ -29,15 +29,24 @@ public class TimeController {
     private Label timeLabel;
 
     //this just updates timeLabel to show what time someone pressed the clock in button
-    //also changes text on clock in button to "clock out"
+    //also changes text of clock in button to "clock out" and vice versa each time they press it
     @FXML
     public void showClockInTime() {
 
-        Date currentDate = new Date();
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        if (clockInButton.getText().equals("Clock Out")) {
+            Date currentDate = new Date();
+            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
 
-        timeLabel.setText("Clocked in at " + timeFormat.format(currentDate));
-        clockInButton.setText("Clock Out");
+            timeLabel.setText("Clocked out at " + timeFormat.format(currentDate));
+            clockInButton.setText("Clock In");
+        } else {
+
+            Date currentDate = new Date();
+            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+
+            timeLabel.setText("Clocked in at " + timeFormat.format(currentDate));
+            clockInButton.setText("Clock Out");
+        }
     }
 
 
