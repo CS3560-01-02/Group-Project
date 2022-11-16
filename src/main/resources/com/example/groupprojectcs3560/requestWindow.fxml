@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.RequestController">
+    <children>
+        <Button fx:id="LogoutButton" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
+        <Button fx:id="SwitchToClockInOutScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefWidth="140.0" text="Clock In / Clock Out" />
+        <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
+        <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
+        <Button fx:id="SwitchToEstimatePayScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Estimate Pay" />
+      <TextField fx:id="requestTextField" layoutX="173.0" layoutY="126.0" prefHeight="163.0" prefWidth="447.0" />
+      <Button fx:id="submitRequest" layoutX="568.0" layoutY="319.0" mnemonicParsing="false" text="Submit" />
+    </children>
+</AnchorPane>
