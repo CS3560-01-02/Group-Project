@@ -1,12 +1,14 @@
 package com.example.groupprojectcs3560;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class RequestController {
@@ -14,6 +16,11 @@ public class RequestController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    @FXML
+    TextField requestTextField;
+
+    @FXML
+    Label requestConfirmationLabel;
 
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
@@ -46,6 +53,20 @@ public class RequestController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void getRequestText(ActionEvent event) throws IOException {
+        String description = requestTextField.getText();
+
+        if(description.isEmpty()) {
+            requestConfirmationLabel.setText("Please enter a request!");
+        }
+        else {
+            requestConfirmationLabel.setText("Request Sent!");
+            requestTextField.setText("");
+            // and then do something with description and save it to db
+        }
+
     }
 
 
