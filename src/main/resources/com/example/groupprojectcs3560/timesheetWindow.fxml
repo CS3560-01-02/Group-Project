@@ -10,6 +10,6 @@
         <Button fx:id="SwitchToClockInOutScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Clock In / Clock Out" />
         <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToRequestWindow" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
         <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
-        <Button fx:id="SwitchToEstimatePayScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Estimate Pay" />
+        <Button fx:id="SwitchToEstimatePayScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToEstimatePayWindow" prefHeight="27.0" prefWidth="140.0" text="Estimate Pay" />
     </children>
 </AnchorPane>
