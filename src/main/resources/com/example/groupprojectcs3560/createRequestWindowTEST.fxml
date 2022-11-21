@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.createRequestTest">
+
+    <children>
+        <TextField fx:id="requestFieldTEST" alignment="TOP_LEFT" layoutX="173.0" layoutY="200.0" prefHeight="163.0" prefWidth="447.0" promptText="Enter Request here" />
+      <CheckBox fx:id="approvedBox" layoutX="530.0" layoutY="136.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Approved" />
+      <TextField fx:id="requestRequestIDText" layoutX="241.0" layoutY="86.0" prefHeight="27.0" prefWidth="90.0" promptText="request ID" />
+      <TextField fx:id="requestEmployeeIDText" layoutX="241.0" layoutY="143.0" prefHeight="27.0" prefWidth="90.0" promptText="employee ID" />
+      <TextField fx:id="requestDate" layoutX="375.0" layoutY="86.0" prefHeight="27.0" prefWidth="99.0" promptText="request date" />
+      <TextField fx:id="requestTime" layoutX="375.0" layoutY="143.0" prefHeight="27.0" prefWidth="99.0" promptText="request time" />
+      <Button layoutX="654.0" layoutY="336.0" mnemonicParsing="false" onAction="#createRequest" text="Submit" />
+      <Button fx:id="goToGetRequestButton" layoutX="40.0" layoutY="323.0" mnemonicParsing="false" onAction="#switchToGetRequestWindow" text="Get Request"  />
+
+    </children>
+
+</AnchorPane>

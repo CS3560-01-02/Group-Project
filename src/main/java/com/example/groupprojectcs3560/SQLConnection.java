@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class SQLConnection {
 
-    static String url = "jdbc:mysql://10.110.167.161:3306:3306/timesheet?serverTimezone=UTC";
-    static String username = "ender";
-    static String password = "Poggers1118!";
+    final static String url = "jdbc:mysql://10.110.167.161:3306:3306/timesheet?serverTimezone=UTC";
+    final static String username = "ender";
+    final static String password = "Poggers1118!";
     static Connection connect = null;
 
     //Connecting to database
