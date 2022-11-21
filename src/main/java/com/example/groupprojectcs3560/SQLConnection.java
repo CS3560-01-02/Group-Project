@@ -4,13 +4,13 @@ import java.sql.*;
 
 public class SQLConnection {
 
-    static String url = "database URL here";
-    static String username = "username";
-    static String password = "password";
+    static String url = "jdbc:mysql://10.110.167.161:3306:3306/timesheet?serverTimezone=UTC";
+    static String username = "ender";
+    static String password = "Poggers1118!";
     static Connection connect = null;
 
     //Connecting to database
-    public static void databaseConnect() throws SQLException {
+    public static Connection databaseConnect() throws SQLException {
 
         try {
             connect = DriverManager.getConnection(url, username, password);
@@ -19,18 +19,6 @@ public class SQLConnection {
         } catch (SQLException e) {
             System.out.println("Couldn't connect to database");
         }
+        return connect;
     } //end databaseConnect
-
-    //Closing connection to database
-    public static void databaseDisconnect() throws SQLException {
-
-        try {
-            if (connect != null) {
-                connect.close();
-            }
-        } catch (SQLException e) {
-            System.out.println("Couldn't close connection to database");
-        }
-    } //end databaseDisconnect
-
 }
