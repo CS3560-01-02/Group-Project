@@ -1,5 +1,6 @@
 package com.example.groupprojectcs3560;
 
+import com.example.groupprojectcs3560.ModelClasses.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TimeController {
+public class TimeController{
 
     private Stage stage;
     private Scene scene;
@@ -32,7 +33,6 @@ public class TimeController {
     //also changes text of clock in button to "clock out" and vice versa each time they press it
     @FXML
     public void showClockInTime() {
-
         if (clockInButton.getText().equals("Clock Out")) {
             Date currentDate = new Date();
             SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
@@ -48,7 +48,6 @@ public class TimeController {
             clockInButton.setText("Clock Out");
         }
     }
-
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("loginWindow.fxml"));

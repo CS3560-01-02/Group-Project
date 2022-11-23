@@ -5,19 +5,33 @@ import java.time.LocalDate;
 public class Employee{
 
     //Attributes
-    public String empID;
-    public String supID;
-    public String employmentDate;
-    public String firstName;
-    public String lastName;
-    public String userName;
-    public String password;
-    public String phoneNumber;
-    public String emailAddress;
-    public String street;
-    public String city;
-    public String state;
-    public String zip;
+    public static int empID;
+//    public String supID;
+//    public String employmentDate;
+//    public String firstName;
+//    public String lastName;
+//    public String userName;
+//    public String password;
+//    public String phoneNumber;
+//    public String emailAddress;
+//    public String street;
+//    public String city;
+//    public String state;
+//    public String zip;
+
+    public Employee(){
+    }
+
+    public Employee(int id){
+        this.empID = id;
+    }
+
+    public void setEmpID(int id) {
+        this.empID = id;
+    }
+    public int getEmpID() {
+        return empID;
+    }
 
 //    /**Sends a request to the manager to fix a mistake in the timesheet. */
 //    public void requestEdit(){

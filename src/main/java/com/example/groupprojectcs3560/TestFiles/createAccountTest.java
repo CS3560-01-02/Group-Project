@@ -85,23 +85,24 @@ public class createAccountTest {
             preparedStatement.setString(12, state);
             preparedStatement.setInt(13, Integer.parseInt(zip));
 
-            int addedRows = preparedStatement.executeUpdate();
-            if (addedRows > 0) {
-                Employee employee = new Employee();
-                employee.empID = empID;
-                employee.supID = supID;
-                employee.employmentDate = employmentDate;
-                employee.firstName = firstName;
-                employee.lastName = lastName;
-                employee.userName = userName;
-                employee.password = password;
-                employee.phoneNumber = phoneNumber;
-                employee.emailAddress = emailAddress;
-                employee.street = street;
-                employee.city = city;
-                employee.state = state;
-                employee.zip = zip;
-            }
+            preparedStatement.executeUpdate();
+
+//            if (addedRows > 0) {
+//                Employee employee = new Employee();
+//                employee.empID = empID;
+//                employee.supID = supID;
+//                employee.employmentDate = employmentDate;
+//                employee.firstName = firstName;
+//                employee.lastName = lastName;
+//                employee.userName = userName;
+//                employee.password = password;
+//                employee.phoneNumber = phoneNumber;
+//                employee.emailAddress = emailAddress;
+//                employee.street = street;
+//                employee.city = city;
+//                employee.state = state;
+//                employee.zip = zip;
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();
