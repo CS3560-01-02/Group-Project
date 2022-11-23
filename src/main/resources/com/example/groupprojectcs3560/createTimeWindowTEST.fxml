@@ -5,6 +5,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.TestFiles.createTimeTest">
    <children>
-      <Button layoutX="271.0" layoutY="187.0" mnemonicParsing="false" text="Clock In" />
+      <Button fx:id="clockInButtonTEST" layoutX="271.0" layoutY="187.0" mnemonicParsing="false" onAction="#createTimeRecord" text="Clock In" />
+      <Label fx:id="displayClockInTime" layoutX="271.0" layoutY="118.0" text="Show clock in time" />
    </children>
 </AnchorPane>
