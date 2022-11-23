@@ -7,5 +7,6 @@
    <children>
       <Button fx:id="clockInButtonTEST" layoutX="271.0" layoutY="187.0" mnemonicParsing="false" onAction="#createTimeRecord" text="Clock In" />
       <Label fx:id="displayClockInTime" layoutX="271.0" layoutY="118.0" text="Show clock in time" />
+      <Button layoutX="276.0" layoutY="252.0" mnemonicParsing="false" onAction="#clockOut" text="Clock Out" />
    </children>
 </AnchorPane>
