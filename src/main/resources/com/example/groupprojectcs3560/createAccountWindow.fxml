@@ -9,16 +9,16 @@
         <TextField fx:id="supIDText" layoutX="150.0" layoutY="67.0" promptText="supID" />
         <Label layoutX="312.0" layoutY="38.0" text="(shouldnt be needed in final)" />
         <Label layoutX="312.0" layoutY="71.0" text="(shouldnt be needed in final)" />
-        <TextField fx:id="firstNameText" layoutX="67.0" layoutY="141.0" prefHeight="26.0" prefWidth="150.0" promptText="firstName" />
-        <TextField fx:id="lastNameText" layoutX="231.0" layoutY="141.0" prefHeight="26.0" prefWidth="150.0" promptText="lastName" />
-        <TextField fx:id="userNameText" layoutX="67.0" layoutY="178.0" prefHeight="26.0" prefWidth="150.0" promptText="userName" />
-        <TextField fx:id="passwordText" layoutX="231.0" layoutY="178.0" prefHeight="26.0" prefWidth="150.0" promptText="password" />
-        <TextField fx:id="phoneNumberText" layoutX="67.0" layoutY="212.0" prefHeight="26.0" prefWidth="150.0" promptText="phoneNumber" />
-        <TextField fx:id="emailAddressText" layoutX="231.0" layoutY="212.0" prefHeight="26.0" prefWidth="150.0" promptText="emailAddress" />
-        <TextField fx:id="streetText" layoutX="67.0" layoutY="259.0" prefHeight="26.0" prefWidth="150.0" promptText="street" />
-        <TextField fx:id="cityText" layoutX="231.0" layoutY="259.0" prefHeight="26.0" prefWidth="150.0" promptText="city" />
-        <TextField fx:id="stateText" layoutX="67.0" layoutY="293.0" prefHeight="26.0" prefWidth="150.0" promptText="state" />
-        <TextField fx:id="zipText" layoutX="231.0" layoutY="293.0" prefHeight="26.0" prefWidth="150.0" promptText="zip" />
+        <TextField fx:id="firstNameText" layoutX="27.0" layoutY="159.0" prefHeight="26.0" prefWidth="150.0" promptText="firstName" />
+        <TextField fx:id="lastNameText" layoutX="27.0" layoutY="187.0" prefHeight="26.0" prefWidth="150.0" promptText="lastName" />
+        <TextField fx:id="userNameText" layoutX="359.0" layoutY="127.0" prefHeight="26.0" prefWidth="150.0" promptText="userName" />
+        <TextField fx:id="passwordText" layoutX="359.0" layoutY="159.0" prefHeight="26.0" prefWidth="150.0" promptText="password" />
+        <TextField fx:id="phoneNumberText" layoutX="276.0" layoutY="213.0" prefHeight="26.0" prefWidth="150.0" promptText="phoneNumber" />
+        <TextField fx:id="emailAddressText" layoutX="442.0" layoutY="213.0" prefHeight="26.0" prefWidth="150.0" promptText="emailAddress" />
+        <TextField fx:id="streetText" layoutX="276.0" layoutY="259.0" prefHeight="26.0" prefWidth="150.0" promptText="street" />
+        <TextField fx:id="cityText" layoutX="442.0" layoutY="259.0" prefHeight="26.0" prefWidth="150.0" promptText="city" />
+        <TextField fx:id="stateText" layoutX="276.0" layoutY="293.0" prefHeight="26.0" prefWidth="150.0" promptText="state" />
+        <TextField fx:id="zipText" layoutX="434.0" layoutY="293.0" prefHeight="26.0" prefWidth="150.0" promptText="zip" />
         <Button fx:id="submitButton" layoutX="351.0" layoutY="335.0" mnemonicParsing="false" onAction="#createEmployee" text="this better work bruh button" />
         <TextField fx:id="employmentDateText" layoutX="150.0" layoutY="101.0" promptText="employmentDate" />
     </children>
