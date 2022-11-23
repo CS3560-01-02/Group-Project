@@ -1,4 +1,4 @@
-package com.example.groupprojectcs3560;
+package com.example.groupprojectcs3560.TestFiles;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

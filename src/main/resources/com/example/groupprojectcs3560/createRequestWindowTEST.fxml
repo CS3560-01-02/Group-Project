@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.createRequestTest">
+<AnchorPane prefHeight="400.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.TestFiles.createRequestTest">
 
     <children>
         <TextField fx:id="requestFieldTEST" alignment="TOP_LEFT" layoutX="173.0" layoutY="200.0" prefHeight="163.0" prefWidth="447.0" promptText="Enter Request here" />

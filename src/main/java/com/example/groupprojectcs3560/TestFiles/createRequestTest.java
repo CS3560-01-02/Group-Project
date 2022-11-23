@@ -1,5 +1,6 @@
-package com.example.groupprojectcs3560;
+package com.example.groupprojectcs3560.TestFiles;
 
+import com.example.groupprojectcs3560.SQLConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 
-public class createRequestTest {
+public class  createRequestTest {
 
     private Stage stage;
     private Scene scene;
@@ -36,10 +37,10 @@ public class createRequestTest {
 
 
     public void createRequest(ActionEvent event) throws IOException, SQLException {
-
+    /*
         final String DB_URL = "jdbc:mysql://10.110.167.161:3306/timesheet?serverTimezone=UTC";
         final String USERNAME = "waffles";
-        final String PASSWORD = "ilovelappland";
+        final String PASSWORD = "ilovelappland"; */
 
         String requestID = requestRequestIDText.getText();
         String employeeID = requestEmployeeIDText.getText();
@@ -48,8 +49,7 @@ public class createRequestTest {
         String time = requestTime.getText();
         Boolean approved = approvedBox.isSelected();
 
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = SQLConnection.databaseConnect();
 
             Statement stat = conn.createStatement();
             String sql = "INSERT INTO request (req_id, emp_id, reqDate, reqTime, description, approved)" + "VALUES(?, ?, ?, ?, ?, ?)";
@@ -64,9 +64,7 @@ public class createRequestTest {
 
             preparedStatement.executeUpdate();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        SQLConnection.databaseDisconnect(conn);
     }
 
     public void switchToGetRequestWindow(ActionEvent event) throws IOException {

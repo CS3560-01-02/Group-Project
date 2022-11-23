@@ -1,4 +1,4 @@
-package com.example.groupprojectcs3560;
+package com.example.groupprojectcs3560.ModelClasses;
 
 import java.sql.Date;
 
