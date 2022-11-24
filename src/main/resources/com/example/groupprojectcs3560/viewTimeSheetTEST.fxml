@@ -7,6 +7,7 @@
     <children>
         <TableView fx:id="timeSheetTable" layoutX="84.0" layoutY="113.0" prefHeight="200.0" prefWidth="529.0">
             <columns>
+                <TableColumn fx:id="timeRecordIDColumn" prefWidth="95.0" text="ID" />
                 <TableColumn fx:id="timeRecordDateColumn" prefWidth="95.0" text="Date" />
                 <TableColumn fx:id="clockInColumn" prefWidth="85.0" text="Clock In" />
                 <TableColumn fx:id="clockOutColumn" prefWidth="85.0" text="Clock Out" />
@@ -15,7 +16,7 @@
                 <TableColumn fx:id="totalHoursColumn" prefWidth="95.0" text="Total Hours" />
             </columns>
         </TableView>
-      <Button fx:id="viewTimesheetButton" layoutX="584.0" layoutY="336.0" mnemonicParsing="false"  onAction="#showLast5Days" text="View Timesheet" />
+        <Button fx:id="viewTimesheetButton" layoutX="584.0" layoutY="336.0" mnemonicParsing="false"  onAction="#showLast5Days" text="View Timesheet" />
 
     </children>
 
