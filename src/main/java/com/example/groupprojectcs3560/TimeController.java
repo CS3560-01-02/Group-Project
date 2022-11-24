@@ -12,7 +12,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class TimeController{
@@ -23,7 +25,14 @@ public class TimeController{
 
     //direct connection to clockInButton from timeWindow.fxml
     @FXML
-    Button clockInButton;
+    Button clockButton;
+    @FXML
+    Button mealButton;
+
+    private int mealCounter = 0;
+    private int clockCounter = 0;
+
+    private int currentID = Employee.empID;
 
     //direct connection to timeLabel from timeWindow.fxml
     @FXML
@@ -31,22 +40,115 @@ public class TimeController{
 
     //this just updates timeLabel to show what time someone pressed the clock in button
     //also changes text of clock in button to "clock out" and vice versa each time they press it
-    @FXML
-    public void showClockInTime() {
-        if (clockInButton.getText().equals("Clock Out")) {
-            Date currentDate = new Date();
-            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+    public void pressClockButton() throws SQLException {
+        Connection conn = SQLConnection.databaseConnect();
+        if(clockCounter == 0) {
 
-            timeLabel.setText("Clocked out at " + timeFormat.format(currentDate));
-            clockInButton.setText("Clock In");
-        } else {
+            Date date = new Date();
+            SimpleDateFormat currentDate = new SimpleDateFormat("YYYY-MM-dd");
+            String todayDate = currentDate.format(date);
+            String shiftIn = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
 
-            Date currentDate = new Date();
-            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+            Statement stat = conn.createStatement();
+            String sql = "INSERT INTO TimeWorked (emp_id, workedDate, shiftIn, shiftOut, mealIn, mealOut)" + "VALUES(?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
-            timeLabel.setText("Clocked in at " + timeFormat.format(currentDate));
-            clockInButton.setText("Clock Out");
+            preparedStatement.setInt(1, currentID);
+            preparedStatement.setString(2, todayDate);
+            preparedStatement.setString(3, shiftIn);
+            preparedStatement.setNull(4, Types.NULL);
+            preparedStatement.setNull(5, Types.NULL);
+            preparedStatement.setNull(6, Types.NULL);
+
+            preparedStatement.executeUpdate();
+
+            clockButton.setText("Clock Out");
+            mealButton.setDisable(false);
+            clockCounter++;
         }
+        else {
+
+            String clockOutTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+
+            String sql2 = "update timeWorked SET shiftOut = '" + clockOutTime + "' where emp_id = " + currentID + " and shiftOut is NULL;";
+            PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
+            preparedStatement2.executeUpdate();
+
+            String sql3 = "update timeWorked SET mealIn = '" + "-" + "' where emp_id = " + currentID + " and mealIn is NULL;";
+            PreparedStatement preparedStatement3 = conn.prepareStatement(sql3);
+            preparedStatement3.executeUpdate();
+
+            String sql4 = "update timeWorked SET mealOut = '" + "-" + "' where emp_id = " + currentID + " and mealOut is NULL;";
+            PreparedStatement preparedStatement4 = conn.prepareStatement(sql4);
+            preparedStatement4.executeUpdate();
+
+            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+
+            SQLConnection.databaseDisconnect(conn);
+
+            clockButton.setText("Clock In");
+            mealButton.setDisable(true);
+            clockCounter--;
+        }
+
+//        if (clockButton.getText().equals("Clock Out")) {
+//            Date currentDate = new Date();
+//            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+//
+//            timeLabel.setText("Clocked out at " + timeFormat.format(currentDate));
+//            clockButton.setText("Clock In");
+//        } else {
+//
+//            Date currentDate = new Date();
+//            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+//
+//            timeLabel.setText("Clocked in at " + timeFormat.format(currentDate));
+//            clockButton.setText("Clock Out");
+//        }
+    }
+
+    public void pressMealButton() throws SQLException {
+        Connection conn = SQLConnection.databaseConnect();
+        if(mealCounter == 0) {
+
+            String mealInTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+
+            String sql = "update timeWorked SET mealIn = '" + mealInTime + "' where emp_id = " + currentID + " and mealIn is NULL;";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+
+            mealButton.setText("Meal Out");
+            clockButton.setDisable(true);
+            mealCounter++;
+        }
+        else {
+
+            String mealOutTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+
+            String sql2 = "update timeWorked SET mealOut = '" + mealOutTime + "' where emp_id = " + currentID + " and mealOut is NULL;";
+            PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
+            preparedStatement2.executeUpdate();
+
+            mealButton.setText("Meal In");
+            clockButton.setDisable(false);
+            mealButton.setDisable(true);
+            mealCounter--;
+        }
+
+//        if (clockButton.getText().equals("Clock Out")) {
+//            Date currentDate = new Date();
+//            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+//
+//            timeLabel.setText("Clocked out at " + timeFormat.format(currentDate));
+//            clockButton.setText("Clock In");
+//        } else {
+//
+//            Date currentDate = new Date();
+//            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+//
+//            timeLabel.setText("Clocked in at " + timeFormat.format(currentDate));
+//            clockButton.setText("Clock Out");
+//        }
     }
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
