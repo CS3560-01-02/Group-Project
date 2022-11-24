@@ -159,6 +159,14 @@ public class TimeController{
         stage.show();
     }
 
+    public void switchToAccountWindow(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("createAccountWindow.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void switchToTimeWindow(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("timeWindow.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

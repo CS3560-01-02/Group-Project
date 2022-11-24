@@ -3,14 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.TestFiles.createAccountTest">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.AccountController">
     <children>
         <TextField fx:id="empIDText" layoutX="150.0" layoutY="34.0" promptText="empID" />
         <TextField fx:id="supIDText" layoutX="150.0" layoutY="67.0" promptText="supID" />
         <Label layoutX="312.0" layoutY="38.0" text="(shouldnt be needed in final)" />
         <Label layoutX="312.0" layoutY="71.0" text="(shouldnt be needed in final)" />
-        <TextField fx:id="firstNameText" layoutX="27.0" layoutY="159.0" prefHeight="26.0" prefWidth="150.0" promptText="firstName" />
-        <TextField fx:id="lastNameText" layoutX="27.0" layoutY="187.0" prefHeight="26.0" prefWidth="150.0" promptText="lastName" />
+        <TextField fx:id="firstNameText" layoutX="51.0" layoutY="256.0" prefHeight="26.0" prefWidth="150.0" promptText="firstName" />
+        <TextField fx:id="lastNameText" layoutX="51.0" layoutY="290.0" prefHeight="26.0" prefWidth="150.0" promptText="lastName" />
         <TextField fx:id="userNameText" layoutX="359.0" layoutY="127.0" prefHeight="26.0" prefWidth="150.0" promptText="userName" />
         <TextField fx:id="passwordText" layoutX="359.0" layoutY="159.0" prefHeight="26.0" prefWidth="150.0" promptText="password" />
         <TextField fx:id="phoneNumberText" layoutX="276.0" layoutY="213.0" prefHeight="26.0" prefWidth="150.0" promptText="phoneNumber" />
@@ -21,5 +21,6 @@
         <TextField fx:id="zipText" layoutX="434.0" layoutY="293.0" prefHeight="26.0" prefWidth="150.0" promptText="zip" />
         <Button fx:id="submitButton" layoutX="351.0" layoutY="335.0" mnemonicParsing="false" onAction="#createEmployee" text="this better work bruh button" />
         <TextField fx:id="employmentDateText" layoutX="150.0" layoutY="101.0" promptText="employmentDate" />
+      <Label layoutX="14.0" layoutY="227.0" text="ONLY ENTER STUFF HERE FOR TESTING !!!" />
     </children>
 </AnchorPane>

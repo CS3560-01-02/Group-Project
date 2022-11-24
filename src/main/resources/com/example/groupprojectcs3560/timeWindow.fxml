@@ -24,5 +24,6 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="createAccountButton" onAction="#switchToAccountWindow" layoutX="608.0" layoutY="158.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Create Account" />
     </children>
 </AnchorPane>
