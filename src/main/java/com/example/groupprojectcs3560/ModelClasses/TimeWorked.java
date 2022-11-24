@@ -13,6 +13,7 @@ public class TimeWorked {
     private Time breakIn;
     private Time breakOut;
 
+
     /**
      * Assigns an object of Time a unique ID
      * @param timeID // ID of Time object
@@ -31,6 +32,7 @@ public class TimeWorked {
      * Records the current date 
      * @param date // Current date when called
      */
+
     public void setDate(Date date) {
         this.date = date;
     }
