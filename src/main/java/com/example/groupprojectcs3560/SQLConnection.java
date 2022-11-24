@@ -18,6 +18,7 @@ public class SQLConnection {
             System.out.println("connected!");
         } catch (SQLException e) {
             System.out.println("Couldn't connect to database");
+            throw e;
         }
         return connect;
     } //end databaseConnect
@@ -29,8 +30,9 @@ public class SQLConnection {
                 connect.close();
                 System.out.println("Closed connection!");
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Connection couldn't be closed");
+            throw e;
         }
     } //end databaseDisconnect
 }

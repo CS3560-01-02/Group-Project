@@ -34,6 +34,7 @@ public class createTimeTest {
         Date date = new Date();
         SimpleDateFormat currentDate = new SimpleDateFormat("YYYY-MM-dd");
         String todayDate = currentDate.format(date);
+        String clockInTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
         String shiftIn = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
         String shiftOut = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
         String mealIn = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -52,6 +53,9 @@ public class createTimeTest {
 
         preparedStatement.executeUpdate();
 
+        //SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        displayClockInTime.setText("Clocked in at " + clockInTime);
+
         SQLConnection.databaseDisconnect(conn);
 
 
@@ -67,6 +71,9 @@ public class createTimeTest {
         String updateSTM = "update timeWorked SET shiftOut = '" + clockOutTime + "' where emp_id = 1 and shiftOut is NULL;";
         PreparedStatement preparedStatement = conn.prepareStatement(updateSTM);
         preparedStatement.executeUpdate();
+
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        displayClockInTime.setText("Clocked out at " + clockOutTime);
 
         SQLConnection.databaseDisconnect(conn);
     }
