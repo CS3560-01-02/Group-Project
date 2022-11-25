@@ -2,64 +2,21 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.EstimatePayController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.EstimatePayController">
     <children>
-        <Label fx:id="hoursWorkedLabel" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="167.0" prefHeight="36.0" prefWidth="180.0" text="Total Hours Worked:">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
         <Button fx:id="LogoutButton" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
         <Button fx:id="SwitchToClockInOutScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Clock In / Clock Out" />
         <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToRequestWindow" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
         <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimesheetWindow" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
-        <Button fx:id="SwitchToEstimatePayScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Estimate Pay" />
-      <Label fx:id="overtimePayLabel" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="305.0" prefHeight="36.0" prefWidth="134.0" text="Overtime Pay: ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="totalHoursWorked" layoutX="372.0" layoutY="167.0" prefHeight="36.0" prefWidth="62.0" text="60">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="regularPayLabel" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="269.0" prefHeight="36.0" prefWidth="134.0" text="Regular Pay: ">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label fx:id="totalPayLabel" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="341.0" prefHeight="36.0" prefWidth="134.0" text="Total Pay: " textAlignment="RIGHT">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="regularPay" layoutX="392.0" layoutY="269.0" prefHeight="36.0" prefWidth="134.0" text="\$1,600.00">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="overtimePay" layoutX="392.0" layoutY="305.0" prefHeight="36.0" prefWidth="134.0" text="\$270.00">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="totalPay" layoutX="392.0" layoutY="341.0" prefHeight="36.0" prefWidth="134.0" text="\$1,870.00">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="startDateTextField" layoutX="209.0" layoutY="93.0" prefHeight="36.0" prefWidth="171.0" promptText="Enter start date" />
-      <TextField layoutX="403.0" layoutY="93.0" prefHeight="36.0" prefWidth="171.0" promptText="Enter end date" />
-      <Label fx:id="overtimeLabel" alignment="CENTER_RIGHT" layoutX="434.0" layoutY="167.0" prefHeight="36.0" prefWidth="89.0" text="Overtime:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="overtime" layoutX="526.0" layoutY="167.0" prefHeight="36.0" prefWidth="62.0" text="6">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+        <Button fx:id="SwitchToEstimatePayScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Update Details" />
+        <TextField fx:id="phoneNumberText" layoutX="247.0" layoutY="135.0" prefHeight="26.0" prefWidth="150.0" promptText="phoneNumber" />
+        <TextField fx:id="emailAddressText" layoutX="416.0" layoutY="135.0" prefHeight="26.0" prefWidth="150.0" promptText="emailAddress" />
+        <TextField fx:id="streetText" layoutX="247.0" layoutY="186.0" prefHeight="26.0" prefWidth="150.0" promptText="street" />
+        <TextField fx:id="cityText" layoutX="416.0" layoutY="186.0" prefHeight="26.0" prefWidth="150.0" promptText="city" />
+        <TextField fx:id="stateText" layoutX="247.0" layoutY="225.0" prefHeight="26.0" prefWidth="150.0" promptText="state" />
+        <TextField fx:id="zipText" layoutX="416.0" layoutY="225.0" prefHeight="26.0" prefWidth="150.0" promptText="zip" />
+        <Button fx:id="submitButton" layoutX="333.0" layoutY="282.0" mnemonicParsing="false" onAction="#updateDetails" text="this better work bruh button" />
+      <Label fx:id="updateLabel" layoutX="345.0" layoutY="78.0" text="Update your fields here!" />
     </children>
 </AnchorPane>
