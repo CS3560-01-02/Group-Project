@@ -23,6 +23,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.lang.Math;
+
 
 public class TimesheetController {
 
@@ -85,7 +87,10 @@ public class TimesheetController {
         String clockOutAttribute = null;
         String mealInAttribute = null;
         String mealOutAttribute = null;
+        String timeWorked = null;
         int totalHoursWorkedAttribute = 10; // Add calculation later
+        double totalHoursWorked = 0;
+        double wage = 0;
 
         Connection conn = SQLConnection.databaseConnect();
         ResultSet rs = null;
@@ -97,9 +102,9 @@ public class TimesheetController {
            /*this if statement basically allows us to get the latest record in first iteration of for loop,
            and then we use i to get the rest of the latest records before the first*/
             if (i == 0) {
-                sql = "select * from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1;";
+                sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1;";
             } else {
-                sql = "select * from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1," + i + ";";
+                sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1," + i + ";";
             }
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             rs = preparedStatement.executeQuery();
@@ -111,11 +116,53 @@ public class TimesheetController {
                 clockOutAttribute = rs.getString("shiftOut");
                 mealInAttribute = rs.getString("mealIn");
                 mealOutAttribute = rs.getString("mealIn");
+                timeWorked = rs.getString("timeWorked");
             }
+
+            //hours worked calculation
+            double hours = 0;
+            double minutes = 0;
+            double seconds = 0;
+
+            hours =  Double.valueOf(timeWorked.substring(0,2));
+            minutes = Double.valueOf(timeWorked.substring(3,5));
+            seconds = Double.valueOf(timeWorked.substring(6,8));
+
+            //hours worked for table view
+            totalHoursWorkedAttribute = (int) (hours + (minutes/60) + (seconds/360));
+
+            //hours worked for calculating pay
+            double actualHoursWorked = hours + (minutes/60) + (seconds/360);
+
+            //update totalHoursWorked
+            totalHoursWorked += actualHoursWorked;
+
             currentRow = new TimeWorkedTESTObject(timeRecordIDAttribute, workedDateAttribute, clockInAttribute, clockOutAttribute, mealInAttribute, mealOutAttribute, totalHoursWorkedAttribute);
             temp.add(currentRow);
         }
+
+        //get payRate of employee
+        int currentID = Employee.empID;
+        String sql2 = "SELECT payRate FROM jobposition JOIN employeeposition WHERE employeeposition.job_id = jobposition.job_id and emp_id = " + currentID + ";";
+
+        PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
+        ResultSet rs2 = preparedStatement2.executeQuery();
+        if (rs2.next()){
+            wage = rs2.getFloat("payRate");
+        }
+
         SQLConnection.databaseDisconnect(conn);
+
+        //round totalHoursWorked
+        totalHoursWorked = Math.round(totalHoursWorked * 100.0) / 100.0;
+
+        //output
+        System.out.println("Total Hours Worked: " + totalHoursWorked);
+        System.out.println("Your wage: " + wage);
+        double totalPay = totalHoursWorked* wage;
+        //round totalPay
+        totalPay = Math.round(totalPay * 100.0) / 100.0;
+        System.out.println("Estimated Pay: " + totalPay);
         return temp;
     }
 
