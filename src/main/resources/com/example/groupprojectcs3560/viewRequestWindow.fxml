@@ -12,9 +12,10 @@
         <Button fx:id="SwitchToCreateEmployeeScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCreateEmployeeScene" prefHeight="27.0" prefWidth="140.0" text="Add Employee" />
         <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToEditTimeSheetScene" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
       <Label alignment="TOP_LEFT" layoutX="173.0" layoutY="126.0" prefHeight="163.0" prefWidth="447.0" />
-      <Label layoutX="56.0" layoutY="248.0" text="PEEPEE" />
         <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
-
+        <TextField fx:id="fetchedRequest" alignment="TOP_LEFT" layoutX="171.0" layoutY="150.0" prefHeight="189.0" prefWidth="433.0" />
+      <Button fx:id="approveRequest" layoutX="620.0" layoutY="322.0" mnemonicParsing="false" onAction="#approveRequest" prefHeight="17.0" prefWidth="72.0" text="Approve" />
+      <Button fx:id="viewLatestRequest" layoutX="620.0" layoutY="370.0" mnemonicParsing="false" onAction="#getLatestRequest" text="View Latest Request" />
     </children>
 
 </AnchorPane>
