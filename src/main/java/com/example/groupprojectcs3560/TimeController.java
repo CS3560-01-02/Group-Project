@@ -155,12 +155,28 @@ public class TimeController{
 //        }
     }
 
-    public void checkSupervisor(ActionEvent event) throws IOException {
-        //if supervisor,
-        checkLabel.setText("You are!!!!");
+    public void checkSupervisor(ActionEvent event) throws IOException, SQLException {
 
-        // if not,
-        checkLabel.setText("L ratio noob");
+        Connection conn = SQLConnection.databaseConnect();
+
+        ResultSet rs = null;
+
+        int jobIDField = 0;
+
+        String sql = "select * from employeeposition where emp_id = '" + currentID + "' order by datePromoted desc limit 1;";
+        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        rs = preparedStatement.executeQuery();
+
+        if (rs.next()) {
+            jobIDField = rs.getInt("job_id");
+        }
+
+        if(jobIDField == 1) {
+            checkLabel.setText("You are!!!!");
+        }
+        else {
+            checkLabel.setText("L ratio noob");
+        }
     }
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
