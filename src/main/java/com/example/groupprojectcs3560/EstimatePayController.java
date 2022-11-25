@@ -38,6 +38,8 @@ public class EstimatePayController {
     @FXML
     TextField zipText;
     @FXML
+    TextField passwordText;
+    @FXML
     Label updateLabel;
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
@@ -77,6 +79,7 @@ public class EstimatePayController {
 
         try {
             int phoneNumber = Integer.parseInt(phoneNumberText.getText());
+            String password = passwordText.getText();
             String emailAddress = emailAddressText.getText();
             String street = streetText.getText();
             String city = cityText.getText();
@@ -89,6 +92,8 @@ public class EstimatePayController {
             String sql4 = "update Employee SET city = '" + city + "' where emp_id = " + currentID + ";";
             String sql5 = "update Employee SET state = '" + state + "' where emp_id = " + currentID + ";";
             String sql6 = "update Employee SET zip = '" + zip + "' where emp_id = " + currentID + ";";
+            String sql7 = "update Employee SET password = '" + password + "' where emp_id = " + currentID + ";";
+
 
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.addBatch(sql);
@@ -97,6 +102,7 @@ public class EstimatePayController {
             preparedStatement.addBatch(sql4);
             preparedStatement.addBatch(sql5);
             preparedStatement.addBatch(sql6);
+            preparedStatement.addBatch(sql7);
             preparedStatement.executeBatch();
             updateLabel.setText("Changes confirmed!");
 

@@ -11,8 +11,11 @@
         <Button fx:id="LogoutButtonForSupervisor" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
         <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToEditTimeSheetScene" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
         <Button fx:id="SwitchToCreateEmployeeScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Add Employee" />
-      <Label layoutX="316.0" layoutY="183.0" prefHeight="17.0" prefWidth="90.0" text="CREATE" />
         <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
+        <TextField fx:id="firstNameText" layoutX="322.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="firstName" />
+        <TextField fx:id="lastNameText" layoutX="322.0" layoutY="209.0" prefHeight="26.0" prefWidth="150.0" promptText="lastName" />
+        <Button fx:id="submitButton" layoutX="314.0" layoutY="245.0" mnemonicParsing="false" onAction="#createEmployee" text="this better work bruh button" />
+      <Label fx:id="confirmationLabel" layoutX="383.0" layoutY="133.0" />
 
     </children>
 
