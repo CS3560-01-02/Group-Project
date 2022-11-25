@@ -24,6 +24,8 @@
         </TableView>
       <TextField fx:id="searchEmployeeID" layoutX="323.0" layoutY="93.0" prefHeight="25.0" prefWidth="117.0" text="Enter Employee ID" />
       <Button layoutX="458.0" layoutY="93.0" mnemonicParsing="false" text="Search" />
+        <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
+
     </children>
 
 </AnchorPane>

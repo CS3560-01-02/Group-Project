@@ -13,6 +13,8 @@
         <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToEditTimeSheetScene" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
       <Label alignment="TOP_LEFT" layoutX="173.0" layoutY="126.0" prefHeight="163.0" prefWidth="447.0" />
       <Label layoutX="56.0" layoutY="248.0" text="PEEPEE" />
+        <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
+
     </children>
 
 </AnchorPane>

@@ -171,11 +171,12 @@ public class TimeController{
             jobIDField = rs.getInt("job_id");
         }
 
-        if(jobIDField == 1) {
-            checkLabel.setText("You are!!!!");
-        }
-        else {
-            checkLabel.setText("L ratio noob");
+        if(jobIDField == 1 || jobIDField == 2) {
+            Parent root = FXMLLoader.load(getClass().getResource("searchEmployeeWindow.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
