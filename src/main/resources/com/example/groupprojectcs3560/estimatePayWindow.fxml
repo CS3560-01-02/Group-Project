@@ -18,5 +18,6 @@
         <TextField fx:id="zipText" layoutX="416.0" layoutY="225.0" prefHeight="26.0" prefWidth="150.0" promptText="zip" />
         <Button fx:id="submitButton" layoutX="333.0" layoutY="282.0" mnemonicParsing="false" onAction="#updateDetails" text="this better work bruh button" />
       <Label fx:id="updateLabel" layoutX="345.0" layoutY="78.0" text="Update your fields here!" />
+      <TextField fx:id="passwordText" layoutX="43.0" layoutY="186.0" prefHeight="26.0" prefWidth="150.0" promptText="password" />
     </children>
 </AnchorPane>
