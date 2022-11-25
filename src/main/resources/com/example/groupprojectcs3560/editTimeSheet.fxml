@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.EditTimesheetController">
+
+    <children>
+        <Button fx:id="SwitchToSearchEmployeeScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchSearchEmployeeScene" prefHeight="27.0" prefWidth="140.0" text="Search Employee" />
+        <Button fx:id="SwitchToViewRequestScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchViewRequestScene" prefHeight="27.0" prefWidth="140.0" text="View Requests" />
+        <Button fx:id="LogoutButtonForSupervisor" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
+        <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
+        <Button fx:id="SwitchToCreateEmployeeScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCreateEmployeeScene" prefHeight="27.0" prefWidth="140.0" text="Add Employee" />
+        <TableView fx:id="timeSheetTable" layoutX="83.0" layoutY="138.0" prefHeight="200.0" prefWidth="628.0">
+            <columns>
+                <TableColumn fx:id="timeRecordIDColumn" prefWidth="79.19998931884766" text="ID" />
+                <TableColumn fx:id="clockInColumn" prefWidth="101.60000610351562" text="Clock In" />
+                <TableColumn fx:id="clockOutColumn" prefWidth="85.0" text="Clock Out" />
+                <TableColumn fx:id="mealInColumn" prefWidth="85.0" text="Meal In" />
+                <TableColumn fx:id="mealOutColumn" prefWidth="85.0" text="Meal Out" />
+                <TableColumn fx:id="totalHoursColumn" prefWidth="95.0" text="Total Hours" />
+                <TableColumn fx:id="timeRecordDateColumn" prefWidth="95.0" text="Date" />
+            </columns>
+        </TableView>
+      <TextField fx:id="searchEmployeeID" layoutX="323.0" layoutY="93.0" prefHeight="25.0" prefWidth="117.0" text="Enter Employee ID" />
+      <Button layoutX="458.0" layoutY="93.0" mnemonicParsing="false" text="Search" />
+    </children>
+
+</AnchorPane>

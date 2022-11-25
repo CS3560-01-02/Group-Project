@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.SearchEmployeeController">
+
+    <children>
+        <Button fx:id="SwitchToSearchEmployeeScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Search Employee" />
+        <Button fx:id="SwitchToViewRequestScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchViewRequestScene" prefHeight="27.0" prefWidth="140.0" text="View Requests" />
+        <Button fx:id="LogoutButtonForSupervisor" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
+        <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToEditTimeSheetScene" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
+        <Button fx:id="SwitchToCreateEmployeeScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCreateEmployeeScene" prefHeight="27.0" prefWidth="140.0" text="Add Employee" />
+      <Label layoutX="350.0" layoutY="214.0" prefHeight="17.0" prefWidth="43.0" text="hai" />
+    </children>
+
+</AnchorPane>
