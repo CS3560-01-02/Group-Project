@@ -3,13 +3,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.TimesheetController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.TimesheetController">
     <children>
-        <Label layoutX="300.0" layoutY="100.0" text="pretend we got a cool timesheet here lol" />
         <Button fx:id="LogoutButton" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
         <Button fx:id="SwitchToClockInOutScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Clock In / Clock Out" />
         <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToRequestWindow" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
         <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
         <Button fx:id="SwitchToUpdateDetailsScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToUpdateWindow" prefHeight="27.0" prefWidth="140.0" text="Update Details" />
+        <TableView fx:id="timeSheetTable" layoutX="83.0" layoutY="138.0" prefHeight="200.0" prefWidth="628.0">
+            <columns>
+                <TableColumn fx:id="timeRecordIDColumn" prefWidth="79.19998931884766" text="ID" />
+                <TableColumn fx:id="clockInColumn" prefWidth="101.60000610351562" text="Clock In" />
+                <TableColumn fx:id="clockOutColumn" prefWidth="85.0" text="Clock Out" />
+                <TableColumn fx:id="mealInColumn" prefWidth="85.0" text="Meal In" />
+                <TableColumn fx:id="mealOutColumn" prefWidth="85.0" text="Meal Out" />
+                <TableColumn fx:id="totalHoursColumn" prefWidth="95.0" text="Total Hours" />
+                <TableColumn fx:id="timeRecordDateColumn" prefWidth="95.0" text="Date" />
+            </columns>
+        </TableView>
+
+        <Button fx:id="viewTimesheetButton" layoutX="584.0" layoutY="336.0" mnemonicParsing="false"  onAction="#showLast5Days" text="View Timesheet" />
     </children>
 </AnchorPane>

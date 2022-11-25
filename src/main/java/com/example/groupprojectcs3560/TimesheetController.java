@@ -1,14 +1,28 @@
 package com.example.groupprojectcs3560;
 
 
+import com.example.groupprojectcs3560.ModelClasses.Employee;
+import com.example.groupprojectcs3560.ModelClasses.TimeWorked;
+import com.example.groupprojectcs3560.ModelClasses.TimeWorkedTESTObject;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class TimesheetController {
 
@@ -16,6 +30,94 @@ public class TimesheetController {
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private TableView<TimeWorkedTESTObject> timeSheetTable;
+
+    @FXML
+    Button viewTimesheetButton;
+
+    @FXML
+    public TableColumn<TimeWorked, Integer> timeRecordIDColumn;
+    @FXML
+    public TableColumn<TimeWorked, String> timeRecordDateColumn;
+    @FXML
+    public TableColumn<TimeWorked, String> clockInColumn;
+    @FXML
+    public TableColumn<TimeWorked, String> clockOutColumn;
+    @FXML
+    public TableColumn<TimeWorked, String> mealInColumn;
+    @FXML
+    public TableColumn<TimeWorked, String> mealOutColumn;
+    @FXML
+    public TableColumn<TimeWorked, Integer> totalHoursColumn;
+    int currentID = Employee.empID;
+
+    private ObservableList<TimeWorkedTESTObject> TimeRecords = createTimeWorkedObservableList();
+
+
+    public TimesheetController() throws SQLException {
+    }
+
+
+    public void showLast5Days() {
+
+        timeRecordIDColumn.setCellValueFactory(new PropertyValueFactory<>("TimeIDForTimeSheet"));
+        timeRecordDateColumn.setCellValueFactory(new PropertyValueFactory<>("DateWorked"));
+        clockInColumn.setCellValueFactory(new PropertyValueFactory<>("ShiftIn"));
+        clockOutColumn.setCellValueFactory(new PropertyValueFactory<>("ShiftOut"));
+        mealInColumn.setCellValueFactory(new PropertyValueFactory<>("MealIn"));
+        mealOutColumn.setCellValueFactory(new PropertyValueFactory<>("MealOut"));
+        totalHoursColumn.setCellValueFactory(new PropertyValueFactory<>("TotalHours"));
+
+        timeSheetTable.setItems(TimeRecords);
+    }
+
+    public ObservableList<TimeWorkedTESTObject> createTimeWorkedObservableList() throws SQLException {
+
+        ObservableList<TimeWorkedTESTObject> temp = FXCollections.observableArrayList();
+        TimeWorkedTESTObject currentRow = null;
+
+        //Variables to insert into constructor for the TimeWorked objects that will be put into TableView
+        int timeRecordIDAttribute = 0;
+        int employeeId = currentID;
+        String workedDateAttribute = null;
+        String clockInAttribute = null;
+        String clockOutAttribute = null;
+        String mealInAttribute = null;
+        String mealOutAttribute = null;
+        int totalHoursWorkedAttribute = 10; // Add calculation later
+
+        Connection conn = SQLConnection.databaseConnect();
+        ResultSet rs = null;
+        String sql = null;
+
+        /*in this for loop, you get the 5 latest records of the TimeWorked table, create TimeWorkedObjects for each,
+         * and then you add those objects into an Observable List*/
+        for (int i = 0; i < 5; i++) {
+           /*this if statement basically allows us to get the latest record in first iteration of for loop,
+           and then we use i to get the rest of the latest records before the first*/
+            if (i == 0) {
+                sql = "select * from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1;";
+            } else {
+                sql = "select * from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1," + i + ";";
+            }
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                timeRecordIDAttribute = rs.getInt("time_id");
+                workedDateAttribute = rs.getString("workedDate");
+                clockInAttribute = rs.getString("shiftIn");
+                clockOutAttribute = rs.getString("shiftOut");
+                mealInAttribute = rs.getString("mealIn");
+                mealOutAttribute = rs.getString("mealIn");
+            }
+            currentRow = new TimeWorkedTESTObject(timeRecordIDAttribute, workedDateAttribute, clockInAttribute, clockOutAttribute, mealInAttribute, mealOutAttribute, totalHoursWorkedAttribute);
+            temp.add(currentRow);
+        }
+        SQLConnection.databaseDisconnect(conn);
+        return temp;
+    }
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("loginWindow.fxml"));
