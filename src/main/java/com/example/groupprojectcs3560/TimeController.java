@@ -29,6 +29,10 @@ public class TimeController{
     @FXML
     Button mealButton;
 
+    @FXML
+    Button checkButton;
+    @FXML
+    Label checkLabel;
     private int mealCounter = 0;
     private int clockCounter = 0;
 
@@ -149,6 +153,14 @@ public class TimeController{
 //            timeLabel.setText("Clocked in at " + timeFormat.format(currentDate));
 //            clockButton.setText("Clock Out");
 //        }
+    }
+
+    public void checkSupervisor(ActionEvent event) throws IOException {
+        //if supervisor,
+        checkLabel.setText("You are!!!!");
+
+        // if not,
+        checkLabel.setText("L ratio noob");
     }
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
