@@ -50,11 +50,41 @@ public class CreateEmployeeController {
 
         String firstName = firstNameText.getText();
         String lastName = lastNameText.getText();
-        String userName = String.valueOf(firstName.charAt(0));
-        userName = userName.concat(lastName); // I need to add username validation, will do later
+        String userName =  "";
+        boolean validUsername = false;
+        String foundUsername = "";
+        int counter = 0;
+
+        while(validUsername == false) {
+            userName = String.valueOf(firstName.charAt(0));
+            if(counter == 0) {
+                userName = userName.concat(lastName);
+            }
+            else {
+                userName = userName.concat(lastName + counter);
+            }
+
+            String sql = "SELECT * FROM employee WHERE userName = '" + userName + "';";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                foundUsername = rs.getString("userName");
+            }
+
+            if(foundUsername.equals(userName)) {
+                counter++;
+            }
+            else {
+                validUsername = true;
+            }
+
+        }
+
 
         Random rand = new Random();
-        int randomInt = rand.nextInt(100);
+        int randomInt = rand.nextInt(1000);
         String tempPassword = "temp" + randomInt;
 
         //insert employee record into db
