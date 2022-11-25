@@ -42,7 +42,7 @@ public class AccountController {
         String sql2 = "SELECT * from employee ORDER BY emp_id DESC LIMIT 1;";
 
         //make new employeeposition record for new employee
-        String sql3 = "INSERT INTO employeeposition(emp_id, job_id, datePromoted)" + "VALUES(?,?,?);";
+        String sql3 = "INSERT INTO employeeposition (emp_id, job_id, datePromoted)" + "VALUES(?,?,?);";
 
         PreparedStatement preparedStatement = conn.prepareStatement(sql1);
 
@@ -79,7 +79,7 @@ public class AccountController {
             preparedStatement3.setInt(1, emp_id);
             preparedStatement3.setInt(2, 3);
             preparedStatement3.setString(3, todayDate);
-            preparedStatement3.executeQuery();
+            preparedStatement3.executeUpdate();
 
 
         }
