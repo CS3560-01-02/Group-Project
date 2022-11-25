@@ -160,6 +160,7 @@ public class TimeController{
     }
 
     public void switchToAccountWindow(ActionEvent event) throws IOException {
+        String sql = ""+Employee.empID + ";";
         Parent root = FXMLLoader.load(getClass().getResource("createAccountWindow.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
