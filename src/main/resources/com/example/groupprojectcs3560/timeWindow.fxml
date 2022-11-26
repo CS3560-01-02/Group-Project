@@ -24,8 +24,6 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="createAccountButton" layoutX="608.0" layoutY="158.0" mnemonicParsing="false" onAction="#switchToAccountWindow" prefHeight="27.0" prefWidth="140.0" text="Create Account" />
-      <Button fx:id="checkButton" onAction="#checkSupervisor" layoutX="55.0" layoutY="347.0" mnemonicParsing="false" text="am I a supervisor" />
-      <Label fx:id="checkLabel" layoutX="94.0" layoutY="316.0" text="epic" />
+      <Button fx:id="checkButton" layoutX="14.0" layoutY="405.0" mnemonicParsing="false" onAction="#checkSupervisor" text="Supervisor View" />
     </children>
 </AnchorPane>

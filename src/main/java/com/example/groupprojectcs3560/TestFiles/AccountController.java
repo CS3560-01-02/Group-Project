@@ -1,6 +1,7 @@
-package com.example.groupprojectcs3560;
+package com.example.groupprojectcs3560.TestFiles;
 
 import com.example.groupprojectcs3560.ModelClasses.Employee;
+import com.example.groupprojectcs3560.SQLConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
