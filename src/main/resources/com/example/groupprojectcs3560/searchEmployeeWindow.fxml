@@ -11,8 +11,20 @@
         <Button fx:id="LogoutButtonForSupervisor" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
         <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToEditTimeSheetScene" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
         <Button fx:id="SwitchToCreateEmployeeScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCreateEmployeeScene" prefHeight="27.0" prefWidth="140.0" text="Add Employee" />
-      <Label layoutX="350.0" layoutY="214.0" prefHeight="17.0" prefWidth="43.0" text="hai" />
-      <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
+        <TableView fx:id="listOfEmployeesTable" layoutX="41.0" layoutY="165.0" prefHeight="200.0" prefWidth="712.0">
+            <columns>
+                <TableColumn fx:id="EmployeeIDColumn" prefWidth="69.0" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="129.0" text="Name" />
+                <TableColumn fx:id="phoneNumberColumn" prefWidth="100.0" text="Phone Number" />
+                <TableColumn fx:id="emailColumn" prefWidth="168.0" text="Email" />
+                <TableColumn fx:id="usernameColumn" prefWidth="131.0" text="Username" />
+                <TableColumn fx:id="passwordColumn" prefWidth="114.0" text="Password" />
+            </columns>
+        </TableView>
+
+        <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
+      <TextField fx:id="employeeNameTextField" layoutX="290.0" layoutY="98.0" promptText="Enter Name" />
+      <Button fx:id="searchEmployeeButton" layoutX="471.0" layoutY="98.0" mnemonicParsing="false" onAction="#searchEmployee" text="Search" />
     </children>
 
 </AnchorPane>

@@ -1,11 +1,15 @@
 package com.example.groupprojectcs3560.ModelClasses;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.time.LocalDate;
 
 public class Employee{
 
     //Attributes
     public static int empID;
+
 //    public String supID;
 //    public String employmentDate;
 //    public String firstName;
