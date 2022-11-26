@@ -40,6 +40,8 @@ public class UpdateDetailsController {
     TextField passwordText;
     @FXML
     Label updateLabel;
+    @FXML
+    Label confirmationLabel;
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("loginWindow.fxml"));
@@ -93,7 +95,6 @@ public class UpdateDetailsController {
             String sql6 = "update Employee SET zip = '" + zip + "' where emp_id = " + currentID + ";";
             String sql7 = "update Employee SET password = '" + password + "' where emp_id = " + currentID + ";";
 
-
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.addBatch(sql);
             preparedStatement.addBatch(sql2);
@@ -103,11 +104,11 @@ public class UpdateDetailsController {
             preparedStatement.addBatch(sql6);
             preparedStatement.addBatch(sql7);
             preparedStatement.executeBatch();
-            updateLabel.setText("Changes confirmed!");
+            confirmationLabel.setText("Changes saved!");
 
         }
         catch(Exception e) {
-            updateLabel.setText("Please make sure phone number and zip are numbers only!");
+            confirmationLabel.setText("Please make sure phone number and zip are numbers only!");
         }
 
 

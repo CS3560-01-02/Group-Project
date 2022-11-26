@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.UpdateDetailsController">
     <children>
@@ -10,14 +11,18 @@
         <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToRequestWindow" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
         <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimesheetWindow" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
         <Button fx:id="SwitchToEstimatePayScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Update Details" />
-        <TextField fx:id="phoneNumberText" layoutX="247.0" layoutY="135.0" prefHeight="26.0" prefWidth="150.0" promptText="phoneNumber" />
-        <TextField fx:id="emailAddressText" layoutX="416.0" layoutY="135.0" prefHeight="26.0" prefWidth="150.0" promptText="emailAddress" />
-        <TextField fx:id="streetText" layoutX="247.0" layoutY="186.0" prefHeight="26.0" prefWidth="150.0" promptText="street" />
-        <TextField fx:id="cityText" layoutX="416.0" layoutY="186.0" prefHeight="26.0" prefWidth="150.0" promptText="city" />
-        <TextField fx:id="stateText" layoutX="247.0" layoutY="225.0" prefHeight="26.0" prefWidth="150.0" promptText="state" />
-        <TextField fx:id="zipText" layoutX="416.0" layoutY="225.0" prefHeight="26.0" prefWidth="150.0" promptText="zip" />
-        <Button fx:id="submitButton" layoutX="333.0" layoutY="282.0" mnemonicParsing="false" onAction="#updateDetails" text="this better work bruh button" />
-      <Label fx:id="updateLabel" layoutX="345.0" layoutY="78.0" text="Update your fields here!" />
-      <TextField fx:id="passwordText" layoutX="43.0" layoutY="186.0" prefHeight="26.0" prefWidth="150.0" promptText="password" />
+        <TextField fx:id="phoneNumberText" layoutX="237.0" layoutY="241.0" prefHeight="26.0" prefWidth="150.0" promptText="phoneNumber" />
+        <TextField fx:id="emailAddressText" layoutX="406.0" layoutY="241.0" prefHeight="26.0" prefWidth="150.0" promptText="emailAddress" />
+        <TextField fx:id="streetText" layoutX="237.0" layoutY="292.0" prefHeight="26.0" prefWidth="150.0" promptText="street" />
+        <TextField fx:id="cityText" layoutX="406.0" layoutY="292.0" prefHeight="26.0" prefWidth="150.0" promptText="city" />
+        <TextField fx:id="stateText" layoutX="237.0" layoutY="331.0" prefHeight="26.0" prefWidth="150.0" promptText="state" />
+        <TextField fx:id="zipText" layoutX="406.0" layoutY="331.0" prefHeight="26.0" prefWidth="150.0" promptText="zip" />
+        <Button fx:id="submitButton" layoutX="370.0" layoutY="376.0" mnemonicParsing="false" onAction="#updateDetails" text="Submit" />
+      <Label fx:id="updateLabel" layoutX="256.0" layoutY="79.0" text="Please update your details here!">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <TextField fx:id="passwordText" layoutX="322.0" layoutY="195.0" prefHeight="26.0" prefWidth="150.0" promptText="password" />
+      <Label fx:id="confirmationLabel" alignment="CENTER" layoutX="230.0" layoutY="151.0" prefHeight="30.0" prefWidth="334.0" />
     </children>
 </AnchorPane>

@@ -35,7 +35,10 @@ public class LoginController {
     @FXML
     Label loginLabel;
 
-    public void verifyLogin(ActionEvent event) throws IOException, SQLException {
+    @FXML
+    Label errorLabel;
+
+    public void verifyLogin(ActionEvent event) throws IOException, SQLException, InterruptedException {
         try {
             Connection conn = SQLConnection.databaseConnect();
             String currentUserName = userNameText.getText();
@@ -62,7 +65,7 @@ public class LoginController {
             }
         }
         catch(Exception e) {
-            e.printStackTrace();
+            errorLabel.setText("Wrong credentials!");
         }
 
     }

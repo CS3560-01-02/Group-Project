@@ -67,6 +67,7 @@ public class TimeController{
             preparedStatement.executeUpdate();
 
             clockButton.setText("Clock Out");
+            timeLabel.setText("Clocked In at: " + shiftIn);
             mealButton.setDisable(false);
             clockCounter++;
         }
@@ -91,6 +92,7 @@ public class TimeController{
             SQLConnection.databaseDisconnect(conn);
 
             clockButton.setText("Clock In");
+            timeLabel.setText("Clocked Out at: " + clockOutTime);
             mealButton.setDisable(true);
             clockCounter--;
         }
@@ -122,6 +124,7 @@ public class TimeController{
             preparedStatement.executeUpdate();
 
             mealButton.setText("Meal Out");
+            timeLabel.setText("Mealed In at: " + mealInTime);
             clockButton.setDisable(true);
             mealCounter++;
         }
@@ -134,6 +137,7 @@ public class TimeController{
             preparedStatement2.executeUpdate();
 
             mealButton.setText("Meal In");
+            timeLabel.setText("Mealed Out at: " + mealOutTime);
             clockButton.setDisable(false);
             mealButton.setDisable(true);
             mealCounter--;
@@ -182,15 +186,6 @@ public class TimeController{
 
     public void switchToLoginWindow(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("loginWindow.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void switchToAccountWindow(ActionEvent event) throws IOException {
-        String sql = ""+Employee.empID + ";";
-        Parent root = FXMLLoader.load(getClass().getResource("createAccountWindow.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -7,7 +7,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.TimeController">
     <children>
         <Button fx:id="LogoutButton" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
-        <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="145.0" textAlignment="CENTER">
+        <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="141.0" prefHeight="27.0" prefWidth="369.0" textAlignment="CENTER">
             <font>
                 <Font size="18.0" />
             </font></Label>
@@ -15,11 +15,11 @@
       <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToRequestWindow" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
       <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimesheetWindow" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
       <Button fx:id="SwitchToUpdateDetailsScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToUpdateWindow" prefHeight="27.0" prefWidth="140.0" text="Update Details" />
-      <Button fx:id="clockButton" layoutX="245.0" layoutY="202.0" mnemonicParsing="false" onAction="#pressClockButton" text="Clock In">
+      <Button fx:id="clockButton" layoutX="276.0" layoutY="202.0" mnemonicParsing="false" onAction="#pressClockButton" text="Clock In">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="mealButton" disable="true" layoutX="460.0" layoutY="202.0" mnemonicParsing="false" onAction="#pressMealButton" text="Meal In">
+      <Button fx:id="mealButton" disable="true" layoutX="434.0" layoutY="202.0" mnemonicParsing="false" onAction="#pressMealButton" text="Meal In">
          <font>
             <Font size="18.0" />
          </font>

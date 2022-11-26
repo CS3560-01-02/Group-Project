@@ -13,5 +13,6 @@
         <Button layoutX="278.0" layoutY="289.0" mnemonicParsing="false" onAction="#verifyLogin" text="Enter" />
       <PasswordField fx:id="passwordText" layoutX="225.0" layoutY="249.0" promptText="Password:" />
       <TextField fx:id="userNameText" layoutX="225.0" layoutY="212.0" promptText="Username:" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="152.0" layoutY="169.0" prefHeight="18.0" prefWidth="294.0" textAlignment="CENTER" />
     </children>
 </AnchorPane>
