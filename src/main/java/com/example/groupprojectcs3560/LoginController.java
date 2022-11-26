@@ -63,6 +63,9 @@ public class LoginController {
                 stage.setScene(scene);
                 stage.show();
             }
+            else {
+                errorLabel.setText("Wrong credentials!");
+            }
         }
         catch(Exception e) {
             errorLabel.setText("Wrong credentials!");

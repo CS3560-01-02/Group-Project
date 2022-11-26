@@ -14,7 +14,7 @@
         <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
         <TextField fx:id="firstNameText" layoutX="322.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="firstName" />
         <TextField fx:id="lastNameText" layoutX="322.0" layoutY="209.0" prefHeight="26.0" prefWidth="150.0" promptText="lastName" />
-        <Button fx:id="submitButton" layoutX="314.0" layoutY="245.0" mnemonicParsing="false" onAction="#createEmployee" text="this better work bruh button" />
+        <Button fx:id="submitButton" layoutX="348.0" layoutY="248.0" mnemonicParsing="false" onAction="#createEmployee" text="Create Account" />
       <Label fx:id="confirmationLabel" layoutX="383.0" layoutY="133.0" />
 
     </children>

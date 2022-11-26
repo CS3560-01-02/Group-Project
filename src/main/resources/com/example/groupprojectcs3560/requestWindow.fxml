@@ -7,7 +7,7 @@
     <children>
         <Button fx:id="LogoutButton" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
         <Button fx:id="SwitchToClockInOutScene" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Clock In / Clock Out" />
-        <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text=" Request Edit" />
+        <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Request Edit" />
         <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimesheetWindow" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
         <Button fx:id="SwitchToUpdateDetailsScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToUpdateWindow" prefHeight="27.0" prefWidth="140.0" text="Update Details" />
       <TextField fx:id="requestTextField" alignment="TOP_LEFT" layoutX="173.0" layoutY="126.0" prefHeight="163.0" prefWidth="447.0" promptText="Enter Request here" />
