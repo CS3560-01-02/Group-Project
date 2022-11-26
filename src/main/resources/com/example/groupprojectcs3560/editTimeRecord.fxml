@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.EditTimeRecordController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Back" />
+      <Label layoutX="349.0" layoutY="108.0" text="Edit Time:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="enterIDButton" layoutX="409.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Enter" />
+      <TextField layoutX="287.0" layoutY="159.0" prefHeight="25.0" prefWidth="113.0" promptText="Enter Time ID:" />
+      <Button fx:id="updateDBButton" disable="true" layoutX="574.0" layoutY="405.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Enter" />
+      <TextField disable="true" layoutX="466.0" layoutY="210.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
+      <TextField disable="true" layoutX="466.0" layoutY="248.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
+      <TextField disable="true" layoutX="466.0" layoutY="287.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
+      <TextField disable="true" layoutX="466.0" layoutY="324.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
+      <Label fx:id="clockInLabel" disable="true" layoutX="234.0" layoutY="209.0" text="Clock In: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="clockOutLabel" disable="true" layoutX="234.0" layoutY="247.0" text="Clock Out: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="mealInLabel" disable="true" layoutX="234.0" layoutY="286.0" text="Meal In:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="mealOutLabel" disable="true" layoutX="231.0" layoutY="323.0" text="Meal Out:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
