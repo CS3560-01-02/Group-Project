@@ -77,35 +77,57 @@ public class UpdateDetailsController {
 
     public void updateDetails(ActionEvent event) throws IOException, SQLException {
         Connection conn = SQLConnection.databaseConnect();
-
+        String sql = "";
         try {
-            int phoneNumber = Integer.parseInt(phoneNumberText.getText());
-            String password = passwordText.getText();
-            String emailAddress = emailAddressText.getText();
-            String street = streetText.getText();
-            String city = cityText.getText();
-            String state = stateText.getText();
-            int zip = Integer.parseInt(zipText.getText());
+            if(!(phoneNumberText.getText().equals(""))) {
+                int phoneNumber = Integer.parseInt(phoneNumberText.getText());
+                sql = "update Employee SET phoneNumber = '" + phoneNumber + "' where emp_id = " + currentID + ";";
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.executeUpdate();
+            }
 
-            String sql = "update Employee SET phoneNumber = '" + phoneNumber + "' where emp_id = " + currentID + ";";
-            String sql2 = "update Employee SET emailAddress = '" + emailAddress + "' where emp_id = " + currentID + ";";
-            String sql3 = "update Employee SET street = '" + street + "' where emp_id = " + currentID + ";";
-            String sql4 = "update Employee SET city = '" + city + "' where emp_id = " + currentID + ";";
-            String sql5 = "update Employee SET state = '" + state + "' where emp_id = " + currentID + ";";
-            String sql6 = "update Employee SET zip = '" + zip + "' where emp_id = " + currentID + ";";
-            String sql7 = "update Employee SET password = '" + password + "' where emp_id = " + currentID + ";";
+            if(!(emailAddressText.getText().equals(""))) {
+                String emailAddress = emailAddressText.getText();
+                sql = "update Employee SET emailAddress = '" + emailAddress + "' where emp_id = " + currentID + ";";
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.executeUpdate();
+            }
 
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.addBatch(sql);
-            preparedStatement.addBatch(sql2);
-            preparedStatement.addBatch(sql3);
-            preparedStatement.addBatch(sql4);
-            preparedStatement.addBatch(sql5);
-            preparedStatement.addBatch(sql6);
-            preparedStatement.addBatch(sql7);
-            preparedStatement.executeBatch();
+            if(!(streetText.getText().equals(""))) {
+                String street = streetText.getText();
+                sql = "update Employee SET street = '" + street + "' where emp_id = " + currentID + ";";
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.executeUpdate();
+            }
+
+            if(!(cityText.getText().equals(""))) {
+                String city = cityText.getText();
+                sql = "update Employee SET city = '" + city + "' where emp_id = " + currentID + ";";
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.executeUpdate();
+            }
+
+            if(!(stateText.getText().equals(""))) {
+                String state = stateText.getText();
+                sql = "update Employee SET state = '" + state + "' where emp_id = " + currentID + ";";
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.executeUpdate();
+            }
+
+            if(!(zipText.getText().equals(""))) {
+                int zip = Integer.parseInt(zipText.getText());
+                sql = "update Employee SET zip = '" + zip + "' where emp_id = " + currentID + ";";
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.executeUpdate();
+            }
+
+            if(!(passwordText.getText().equals(""))) {
+                String password = passwordText.getText();
+                sql = "update Employee SET password = '" + password + "' where emp_id = " + currentID + ";";
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.executeUpdate();
+            }
             confirmationLabel.setText("Changes saved!");
-
         }
         catch(Exception e) {
             confirmationLabel.setText("Please make sure phone number and zip are numbers only!");
