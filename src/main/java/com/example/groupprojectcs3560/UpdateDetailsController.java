@@ -80,7 +80,7 @@ public class UpdateDetailsController {
         String sql = "";
         try {
             if(!(phoneNumberText.getText().equals(""))) {
-                int phoneNumber = Integer.parseInt(phoneNumberText.getText());
+                long phoneNumber = Long.parseLong(phoneNumberText.getText());
                 sql = "update Employee SET phoneNumber = '" + phoneNumber + "' where emp_id = " + currentID + ";";
                 PreparedStatement preparedStatement = conn.prepareStatement(sql);
                 preparedStatement.executeUpdate();
