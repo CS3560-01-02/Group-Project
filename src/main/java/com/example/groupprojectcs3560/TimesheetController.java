@@ -92,54 +92,54 @@ public class TimesheetController {
         double totalHoursWorked = 0;
         double wage = 0;
 
+        //hours worked calculation
+        double hours = 0;
+        double minutes = 0;
+        double seconds = 0;
+
+        //hours worked for calculating pay
+        double actualHoursWorked = 0;
+
         Connection conn = SQLConnection.databaseConnect();
         ResultSet rs = null;
         String sql = null;
 
         /*in this for loop, you get the 5 latest records of the TimeWorked table, create TimeWorkedObjects for each,
          * and then you add those objects into an Observable List*/
-        for (int i = 0; i < 5; i++) {
-           /*this if statement basically allows us to get the latest record in first iteration of for loop,
-           and then we use i to get the rest of the latest records before the first*/
-            if (i == 0) {
-                sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1;";
-            } else {
-                sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1," + i + ";";
-            }
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            rs = preparedStatement.executeQuery();
+          /*this if statement basically allows us to get the latest record in first iteration of for loop,
+          and then we use i to get the rest of the latest records before the first*/
 
-            while (rs.next()) {
-                timeRecordIDAttribute = rs.getInt("time_id");
-                workedDateAttribute = rs.getString("workedDate");
-                clockInAttribute = rs.getString("shiftIn");
-                clockOutAttribute = rs.getString("shiftOut");
-                mealInAttribute = rs.getString("mealIn");
-                mealOutAttribute = rs.getString("mealIn");
-                timeWorked = rs.getString("timeWorked");
-            }
+        sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 5;";
 
-            //hours worked calculation
-            double hours = 0;
-            double minutes = 0;
-            double seconds = 0;
+        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        rs = preparedStatement.executeQuery();
+
+        while (rs.next()) {
+            timeRecordIDAttribute = rs.getInt("time_id");
+            workedDateAttribute = rs.getString("workedDate");
+            clockInAttribute = rs.getString("shiftIn");
+            clockOutAttribute = rs.getString("shiftOut");
+            mealInAttribute = rs.getString("mealIn");
+            mealOutAttribute = rs.getString("mealIn");
+            timeWorked = rs.getString("timeWorked");
 
             hours =  Double.valueOf(timeWorked.substring(0,2));
             minutes = Double.valueOf(timeWorked.substring(3,5));
             seconds = Double.valueOf(timeWorked.substring(6,8));
 
-            //hours worked for table view
-            totalHoursWorkedAttribute = (int) (hours + (minutes/60) + (seconds/360));
-
-            //hours worked for calculating pay
-            double actualHoursWorked = hours + (minutes/60) + (seconds/360);
+            actualHoursWorked = hours + (minutes/60) + (seconds/360);
 
             //update totalHoursWorked
             totalHoursWorked += actualHoursWorked;
 
+            //hours worked for table view
+            totalHoursWorkedAttribute = (int) (hours + (minutes/60) + (seconds/360));
+
             currentRow = new TimeWorkedTESTObject(timeRecordIDAttribute, workedDateAttribute, clockInAttribute, clockOutAttribute, mealInAttribute, mealOutAttribute, totalHoursWorkedAttribute);
             temp.add(currentRow);
         }
+
+
 
         //get payRate of employee
         int currentID = Employee.empID;
