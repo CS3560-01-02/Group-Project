@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.EditTimesheetController">
 
@@ -11,7 +12,7 @@
         <Button fx:id="LogoutButtonForSupervisor" layoutX="640.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToLoginWindow" prefHeight="27.0" prefWidth="140.0" text="Logout" />
         <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
         <Button fx:id="SwitchToCreateEmployeeScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCreateEmployeeScene" prefHeight="27.0" prefWidth="140.0" text="Add Employee" />
-        <TableView fx:id="timeSheetTable" layoutX="83.0" layoutY="138.0" prefHeight="200.0" prefWidth="628.0">
+        <TableView fx:id="timeSheetTable" layoutX="83.0" layoutY="130.0" prefHeight="200.0" prefWidth="628.0">
             <columns>
                 <TableColumn fx:id="timeRecordIDColumn" prefWidth="79.19998931884766" text="ID" />
                 <TableColumn fx:id="clockInColumn" prefWidth="101.60000610351562" text="Clock In" />
@@ -22,9 +23,16 @@
                 <TableColumn fx:id="timeRecordDateColumn" prefWidth="95.0" text="Date" />
             </columns>
         </TableView>
-      <TextField fx:id="searchEmployeeID" layoutX="323.0" layoutY="93.0" prefHeight="25.0" prefWidth="117.0" text="Enter Employee ID" />
-      <Button layoutX="458.0" layoutY="93.0" mnemonicParsing="false" text="Search" />
+      <TextField fx:id="searchEmployeeID" layoutX="323.0" layoutY="85.0" prefHeight="25.0" prefWidth="117.0" promptText="Enter Employee ID" />
+      <Button fx:id="searchButton" layoutX="458.0" layoutY="85.0" mnemonicParsing="false" onAction="#showLast5Days" text="Search" />
         <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
+      <TextField fx:id="searchTimeID" layoutX="567.0" layoutY="395.0" prefHeight="25.0" prefWidth="117.0" promptText="Enter Time ID:" />
+      <Button fx:id="submitButton" layoutX="702.0" layoutY="395.0" mnemonicParsing="false" text="Submit" />
+      <Label layoutX="593.0" layoutY="358.0" text="Edit Time:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
 
     </children>
 
