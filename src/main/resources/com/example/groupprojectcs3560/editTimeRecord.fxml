@@ -12,32 +12,33 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="enterIDButton" layoutX="409.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Enter" />
+      <Button fx:id="enterIDButton" layoutX="409.0" layoutY="159.0" mnemonicParsing="false" onAction="#showTime" prefHeight="25.0" prefWidth="113.0" text="Enter" />
       <TextField fx:id="timeIDTextField" layoutX="287.0" layoutY="159.0" prefHeight="25.0" prefWidth="113.0" promptText="Enter Time ID:" />
-      <Button fx:id="updateDBButton" disable="true" layoutX="574.0" layoutY="405.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Enter" />
+      <Button fx:id="updateDBButton" onAction="#updateTime" disable="true" layoutX="574.0" layoutY="405.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Enter" />
       <TextField fx:id="clockInTextField" disable="true" layoutX="466.0" layoutY="210.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
       <TextField fx:id="clockOutTextField" disable="true" layoutX="466.0" layoutY="248.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
       <TextField fx:id="mealInTextField" disable="true" layoutX="466.0" layoutY="287.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
       <TextField fx:id="mealOutTextField" disable="true" layoutX="466.0" layoutY="324.0" prefHeight="25.0" prefWidth="113.0" promptText="Edit Time:" />
-      <Label fx:id="clockInLabel" disable="true" layoutX="234.0" layoutY="209.0" text="Clock In: ">
+      <Label fx:id="clockInLabel" layoutX="234.0" layoutY="209.0" text="Clock In: ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="clockOutLabel" disable="true" layoutX="234.0" layoutY="247.0" text="Clock Out: ">
+      <Label fx:id="clockOutLabel" layoutX="234.0" layoutY="247.0" text="Clock Out: ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="mealInLabel" disable="true" layoutX="234.0" layoutY="286.0" text="Meal In:">
+      <Label fx:id="mealInLabel" layoutX="234.0" layoutY="286.0" text="Meal In:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="mealOutLabel" disable="true" layoutX="231.0" layoutY="323.0" text="Meal Out:">
+      <Label fx:id="mealOutLabel" layoutX="231.0" layoutY="323.0" text="Meal Out:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="timeIDErrorLabel" layoutX="538.0" layoutY="163.0" />
    </children>
 </AnchorPane>
