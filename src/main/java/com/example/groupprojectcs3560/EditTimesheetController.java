@@ -47,7 +47,6 @@ public class EditTimesheetController {
 
     @FXML
     private TableView<TimeWorkedTESTObject> timeSheetTable;
-
     @FXML
     public TableColumn<TimeWorked, Integer> timeRecordIDColumn;
     @FXML
@@ -62,12 +61,9 @@ public class EditTimesheetController {
     public TableColumn<TimeWorked, String> mealOutColumn;
     @FXML
     public TableColumn<TimeWorked, Integer> totalHoursColumn;
-    //int currentID = Employee.empID;
 
     @FXML
     TextField searchEmployeeID;
-
-
     public EditTimesheetController() throws SQLException {
     }
 
@@ -92,7 +88,7 @@ public class EditTimesheetController {
 
         //Variables to insert into constructor for the TimeWorked objects that will be put into TableView
         int timeRecordIDAttribute = 0;
-        final int employeeId = Integer.parseInt(searchEmployeeID.getText());
+        int employeeId = Integer.parseInt(searchEmployeeID.getText());
         String workedDateAttribute = null;
         String clockInAttribute = null;
         String clockOutAttribute = null;
@@ -103,57 +99,56 @@ public class EditTimesheetController {
         double totalHoursWorked = 0;
         double wage = 0;
 
+        //hours worked calculation
+        double hours = 0;
+        double minutes = 0;
+        double seconds = 0;
+
+        //hours worked for calculating pay
+        double actualHoursWorked = 0;
+
         Connection conn = SQLConnection.databaseConnect();
         ResultSet rs = null;
         String sql = null;
 
         /*in this for loop, you get the 5 latest records of the TimeWorked table, create TimeWorkedObjects for each,
          * and then you add those objects into an Observable List*/
-        for (int i = 0; i < 5; i++) {
-           /*this if statement basically allows us to get the latest record in first iteration of for loop,
-           and then we use i to get the rest of the latest records before the first*/
-            if (i == 0) {
-                sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1;";
-            } else {
-                sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 1," + i + ";";
-            }
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            rs = preparedStatement.executeQuery();
+          /*this if statement basically allows us to get the latest record in first iteration of for loop,
+          and then we use i to get the rest of the latest records before the first*/
 
-            while (rs.next()) {
-                timeRecordIDAttribute = rs.getInt("time_id");
-                workedDateAttribute = rs.getString("workedDate");
-                clockInAttribute = rs.getString("shiftIn");
-                clockOutAttribute = rs.getString("shiftOut");
-                mealInAttribute = rs.getString("mealIn");
-                mealOutAttribute = rs.getString("mealIn");
-                timeWorked = rs.getString("timeWorked");
-            }
+        sql = "select *, timediff(timediff(shiftOut,shiftIn),timediff(mealOut,mealIn)) as timeWorked from timeworked where emp_id = '" + employeeId + "' order by time_id desc limit 5;";
 
-            //hours worked calculation
-            double hours = 0;
-            double minutes = 0;
-            double seconds = 0;
+        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        rs = preparedStatement.executeQuery();
+
+        while (rs.next()) {
+            timeRecordIDAttribute = rs.getInt("time_id");
+            workedDateAttribute = rs.getString("workedDate");
+            clockInAttribute = rs.getString("shiftIn");
+            clockOutAttribute = rs.getString("shiftOut");
+            mealInAttribute = rs.getString("mealIn");
+            mealOutAttribute = rs.getString("mealIn");
+            timeWorked = rs.getString("timeWorked");
 
             hours =  Double.valueOf(timeWorked.substring(0,2));
             minutes = Double.valueOf(timeWorked.substring(3,5));
             seconds = Double.valueOf(timeWorked.substring(6,8));
 
-            //hours worked for table view
-            totalHoursWorkedAttribute = (int) (hours + (minutes/60) + (seconds/360));
-
-            //hours worked for calculating pay
-            double actualHoursWorked = hours + (minutes/60) + (seconds/360);
+            actualHoursWorked = hours + (minutes/60) + (seconds/360);
 
             //update totalHoursWorked
             totalHoursWorked += actualHoursWorked;
+
+            //hours worked for table view
+            totalHoursWorkedAttribute = (int) (hours + (minutes/60) + (seconds/360));
 
             currentRow = new TimeWorkedTESTObject(timeRecordIDAttribute, workedDateAttribute, clockInAttribute, clockOutAttribute, mealInAttribute, mealOutAttribute, totalHoursWorkedAttribute);
             temp.add(currentRow);
         }
 
+
+
         //get payRate of employee
-        //int currentID = Employee.empID;
         String sql2 = "SELECT payRate FROM jobposition JOIN employeeposition WHERE employeeposition.job_id = jobposition.job_id and emp_id = " + employeeId + ";";
 
         PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
@@ -214,6 +209,16 @@ public class EditTimesheetController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void switchToEditTimeWindow(ActionEvent event) throws IOException {
+        
+
+//        Parent root = FXMLLoader.load(getClass().getResource("timeWindow.fxml"));
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
     }
 
 }
