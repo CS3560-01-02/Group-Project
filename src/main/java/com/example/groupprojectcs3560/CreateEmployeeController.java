@@ -142,6 +142,34 @@ public class CreateEmployeeController {
 
     }
 
+    public void checkBoss(ActionEvent event) throws IOException, SQLException {
+
+        Connection conn = SQLConnection.databaseConnect();
+
+        ResultSet rs = null;
+
+        int jobIDField = 0;
+
+        String sql = "select * from employeeposition where emp_id = '" + currentID + "' order by datePromoted desc limit 1;";
+        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        rs = preparedStatement.executeQuery();
+
+        if (rs.next()) {
+            jobIDField = rs.getInt("job_id");
+        }
+
+        if(jobIDField == 1) {
+            Parent root = FXMLLoader.load(getClass().getResource("changeJobWindow.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else {
+            confirmationLabel.setText("Invalid Credentials!");
+        }
+    }
+
     public void switchToTimeWindow(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("timeWindow.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -151,6 +179,14 @@ public class CreateEmployeeController {
     }
     public void switchViewRequestScene(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("viewRequestWindow.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToChangeJobWindow(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("changeJobWindow.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

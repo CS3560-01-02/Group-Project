@@ -12,10 +12,11 @@
         <Button fx:id="SwitchToEditTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToEditTimeSheetScene" prefHeight="27.0" prefWidth="140.0" text="View Timesheets" />
         <Button fx:id="SwitchToCreateEmployeeScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Add Employee" />
         <Button fx:id="normalViewButton" layoutX="23.0" layoutY="395.0" mnemonicParsing="false" onAction="#switchToTimeWindow" prefHeight="27.0" prefWidth="140.0" text="Back To Normal View" />
-        <TextField fx:id="firstNameText" layoutX="322.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="firstName" />
-        <TextField fx:id="lastNameText" layoutX="322.0" layoutY="209.0" prefHeight="26.0" prefWidth="150.0" promptText="lastName" />
-        <Button fx:id="submitButton" layoutX="348.0" layoutY="248.0" mnemonicParsing="false" onAction="#createEmployee" text="Create Account" />
-      <Label fx:id="confirmationLabel" layoutX="383.0" layoutY="133.0" />
+        <TextField fx:id="firstNameText" layoutX="322.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="First Name:" />
+        <TextField fx:id="lastNameText" layoutX="322.0" layoutY="209.0" prefHeight="26.0" prefWidth="150.0" promptText="Last Name:" />
+        <Button fx:id="submitButton" layoutX="344.0" layoutY="248.0" mnemonicParsing="false" onAction="#createEmployee" text="Create Employee" />
+      <Label fx:id="confirmationLabel" alignment="CENTER" layoutX="271.0" layoutY="126.0" prefHeight="18.0" prefWidth="250.0" />
+      <Button fx:id="changeJobButton" layoutX="567.0" layoutY="321.0" mnemonicParsing="false" onAction="#checkBoss" text="Demote/Promote" />
 
     </children>
 

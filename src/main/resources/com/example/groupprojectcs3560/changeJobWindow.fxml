@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.groupprojectcs3560.ChangeJobController">
+   <children>
+      <TextField fx:id="employeeTextField" layoutX="225.0" layoutY="197.0" promptText="Enter Employee ID:" />
+      <Button fx:id="promoteButton" layoutX="226.0" layoutY="243.0" mnemonicParsing="false" onAction="#promoteEmployee" text="Promote" />
+      <Button fx:id="demoteButton" layoutX="315.0" layoutY="243.0" mnemonicParsing="false" onAction="#demoteEmployee" text="Demote" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#switchToCreateEmployeeWindow" text="Back" />
+      <Label fx:id="confirmationLabel" alignment="CENTER" layoutX="116.0" layoutY="158.0" prefHeight="18.0" prefWidth="367.0" />
+      <Label layoutX="116.0" layoutY="77.0" text="Enter Employee ID and Promote/Demote!">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
