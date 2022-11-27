@@ -49,11 +49,10 @@ public class EditTimeRecordController {
 
     int currentTimeID = 0;
 
-//Original values from the time record that was searched
-    String OGclockInTime = "";
-    String OGclockOutTime = "";
-    String OGmealInTime = "";
-    String OGmealOutTime = "";
+    String newClockIn = "";
+    String newClockOut = "";
+    String newMealIn = "";
+    String newMealOut = "";
 
     public void showTime(ActionEvent event) throws IOException, SQLException, InterruptedException {
         try {
@@ -68,16 +67,16 @@ public class EditTimeRecordController {
 
             while(rs.next()){
                 //Saves the original values as well
-                OGclockInTime = rs.getString("shiftIn");
-                OGclockOutTime = rs.getString("shiftOut");
-                OGmealInTime = rs.getString("mealIn");
-                OGmealOutTime = rs.getString("mealOut");
+                newClockIn = rs.getString("shiftIn");
+                newClockOut = rs.getString("shiftOut");
+                newMealIn = rs.getString("mealIn");
+                newMealOut = rs.getString("mealOut");
             }
 
-            clockInLabel.setText("Clock In: " + OGclockInTime);
-            clockOutLabel.setText("Clock Out: " + OGclockOutTime);
-            mealInLabel.setText("Meal In: " + OGmealInTime);
-            mealOutLabel.setText("Meal Out: " + OGmealOutTime);
+            clockInLabel.setText("Clock In: " + newClockIn);
+            clockOutLabel.setText("Clock Out: " + newClockOut);
+            mealInLabel.setText("Meal In: " + newMealIn);
+            mealOutLabel.setText("Meal Out: " + newMealOut);
 
             clockInTextField.setDisable(false);
             clockOutTextField.setDisable(false);
@@ -96,92 +95,84 @@ public class EditTimeRecordController {
         Connection conn = SQLConnection.databaseConnect();
         String sql = "";
 
-
         try {
+            //get original values
+            sql = "SELECT * FROM timeworked WHERE time_id = '" + currentTimeID + "';";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet rs  = preparedStatement.executeQuery();
+
+            while(rs.next()){
+                //Saves the original values
+                newClockIn = rs.getString("shiftIn");
+                newClockOut = rs.getString("shiftOut");
+                newMealIn = rs.getString("mealIn");
+                newMealOut = rs.getString("mealOut");
+            }
+
+            //get inputted values for fields, update as necessary
             if(!(clockInTextField.getText().equals(""))) {
-                String newClockIn = clockInTextField.getText();
-                sql = "update timeworked SET shiftIn = '" + newClockIn + "' where time_id = " + currentTimeID + ";";
-                PreparedStatement preparedStatement = conn.prepareStatement(sql);
-                preparedStatement.executeUpdate();
+                newClockIn = clockInTextField.getText();
             }
             if(!(clockOutTextField.getText().equals(""))) {
-                String newClockOut = clockOutTextField.getText();
-                sql = "update timeworked SET shiftOut = '" + newClockOut + "' where time_id = " + currentTimeID + ";";
-                PreparedStatement preparedStatement = conn.prepareStatement(sql);
-                preparedStatement.executeUpdate();
+                newClockOut = clockOutTextField.getText();
             }
             if(!(mealInTextField.getText().equals(""))) {
-                String newMealIn = mealInTextField.getText();
-                sql = "update timeworked SET mealIn = '" + newMealIn + "' where time_id = " + currentTimeID + ";";
-                PreparedStatement preparedStatement = conn.prepareStatement(sql);
-                preparedStatement.executeUpdate();
+                newMealIn = mealInTextField.getText();
             }
             if(!(mealOutTextField.getText().equals(""))) {
-                String newMealOut = mealOutTextField.getText();
-                sql = "update timeworked SET mealOut = '" + newMealOut + "' where time_id = " + currentTimeID + ";";
-                PreparedStatement preparedStatement = conn.prepareStatement(sql);
-                preparedStatement.executeUpdate();
+                newMealOut = mealOutTextField.getText();
             }
 
-            timeIDErrorLabel.setText("Changes saved!");
+            //check valid time
+            if (checkValidTimeRecord(newClockIn, newClockOut, newMealIn, newMealOut)){
+                //if valid, update db
+                String sql1 = "update timeworked SET shiftIn = '" + newClockIn + "' where time_id = " + currentTimeID + ";";
+                String sql2 = "update timeworked SET shiftOut = '" + newClockOut + "' where time_id = " + currentTimeID + ";";
+                String sql3 = "update timeworked SET mealIn = '" + newMealIn + "' where time_id = " + currentTimeID + ";";
+                String sql4 = "update timeworked SET mealOut = '" + newMealOut + "' where time_id = " + currentTimeID + ";";
+                PreparedStatement preparedStatement2 = conn.prepareStatement(sql1);
+                preparedStatement2.addBatch(sql1);
+                preparedStatement2.addBatch(sql2);
+                preparedStatement2.addBatch(sql3);
+                preparedStatement2.addBatch(sql4);
+                preparedStatement2.executeBatch();
+                timeIDErrorLabel.setText("Changes saved!");
+            } else {
+                timeIDErrorLabel.setText("Invalid time input!");
+            }
+
         }
         catch(Exception e) {
             timeIDErrorLabel.setText("Time format incorrect!");
+            throw e;
         }
 
-        //If the record change is invalid, change the time record back using the saved values
-        if (checkValidTimeRecord() == false) {
-
-            String sql1 = null;
-            String sql2 = null;
-            String sql3 = null;
-            String sql4 = null;
-
-            sql1 = "update timeworked SET shiftIn = '" + OGclockInTime + "' where time_id = " + currentTimeID + ";";
-            PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
-            preparedStatement1.executeUpdate();
-
-            sql2 = "update timeworked SET shiftOut = '" + OGclockOutTime + "' where time_id = " + currentTimeID + ";";
-            PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
-            preparedStatement2.executeUpdate();
-
-            sql3 = "update timeworked SET mealIn = '" + OGmealInTime + "' where time_id = " + currentTimeID + ";";
-            PreparedStatement preparedStatement3 = conn.prepareStatement(sql3);
-            preparedStatement3.executeUpdate();
-
-            sql4 = "update timeworked SET mealOut = '" + OGmealOutTime + "' where time_id = " + currentTimeID + ";";
-            PreparedStatement preparedStatement4 = conn.prepareStatement(sql4);
-            preparedStatement4.executeUpdate();
-
-            System.out.println("invalid input");
-        } else {
-            System.out.println("Valid!");
-        }
-        SQLConnection.databaseDisconnect(conn);
     } //end updateTime
 
-    public boolean checkValidTimeRecord() throws SQLException {
+    public boolean checkValidTimeRecord(String newClockIn, String newClockOut, String newMealIn, String newMealOut) throws SQLException {
 
-        String check = null;
-        boolean valid = true;
+        try {
+            int valid = 0;
 
+            Connection conn = SQLConnection.databaseConnect();
+            String sql = "SELECT IF ((('" + newMealOut + "' is null and '" + newMealIn + "' is null) or ('" + newMealOut + "' = 0 and '" + newMealIn + "' = 0)), timediff('" + newClockOut + "', '" + newClockIn + "') > 0, (timediff('" + newClockOut + "', '" + newClockIn + "') > 0) and (TIME_FORMAT('" + newMealOut + "', '%H:%i') between '" + newClockIn + "' and '" + newClockOut + "') and (TIME_FORMAT('" + newMealIn + "', '%H:%i') between '" + newClockIn + "' and '" + newClockOut + "') and timediff('" + newMealOut + "', '" + newMealIn + "') > 0) as valid;";
+            ResultSet rs = null;
 
-        Connection conn = SQLConnection.databaseConnect();
-        String sql = "SELECT * from timeworked where (mealOut between shiftIn and shiftOut and mealIn between shiftIn and shiftOut and timediff(mealOut,mealIn) > 0 or ((mealOut = 0 and mealIn = 0) or (mealOut is null and mealIn is null))and timediff(shiftOut,shiftIn) > 0) and time_id = " + currentTimeID + ";";
-        ResultSet rs = null;
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            rs = preparedStatement.executeQuery();
 
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
-        rs = preparedStatement.executeQuery();
-
-        while (rs.next()) {
-            check = rs.getString("shiftIn");
+            while (rs.next()) {
+                valid = rs.getInt("valid");
+                System.out.println("Gotten int: " + valid);
+            }
+            SQLConnection.databaseDisconnect(conn);
+            System.out.println("shiftIn: " + newClockIn + ", shiftOut: " + newClockOut + ", mealIn: " + newMealIn + ", mealOut: " + newMealOut);
+            System.out.println("valid: " + valid);
+            return valid == 1;
+        } catch (SQLException e) {
+            timeIDErrorLabel.setText("SQLException!");
+            throw e;
         }
-        //if the time record change is invalid, check should be null because the SQL statement returns a result set of null values
-        if (check == null) {
-            valid = false;
-        }
-        SQLConnection.databaseDisconnect(conn);
-        return valid;
     } //end checkValidTimeRecord
 
     public void switchToEditTimeSheetScene(ActionEvent event) throws IOException {
