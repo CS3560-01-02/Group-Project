@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,6 +40,9 @@ public class TimesheetController {
     Button viewTimesheetButton;
 
     @FXML
+    Label payLabel;
+
+    @FXML
     public TableColumn<TimeWorked, Integer> timeRecordIDColumn;
     @FXML
     public TableColumn<TimeWorked, String> timeRecordDateColumn;
@@ -53,6 +57,8 @@ public class TimesheetController {
     @FXML
     public TableColumn<TimeWorked, Integer> totalHoursColumn;
     int currentID = Employee.empID;
+    double calculatedPay = 0;
+
 
     private ObservableList<TimeWorkedTESTObject> TimeRecords = createTimeWorkedObservableList();
 
@@ -72,6 +78,8 @@ public class TimesheetController {
         totalHoursColumn.setCellValueFactory(new PropertyValueFactory<>("TotalHours"));
 
         timeSheetTable.setItems(TimeRecords);
+
+        payLabel.setText("Estimated Pay: $" + calculatedPay);
     }
 
     public ObservableList<TimeWorkedTESTObject> createTimeWorkedObservableList() throws SQLException {
@@ -154,15 +162,16 @@ public class TimesheetController {
         SQLConnection.databaseDisconnect(conn);
 
         //round totalHoursWorked
-        totalHoursWorked = Math.round(totalHoursWorked * 100.0) / 100.0;
+        totalHoursWorked = Math.round(totalHoursWorked * 100.00) / 100.00;
 
         //output
-        System.out.println("Total Hours Worked: " + totalHoursWorked);
-        System.out.println("Your wage: " + wage);
+//        System.out.println("Total Hours Worked: " + totalHoursWorked);
+//        System.out.println("Your wage: " + wage);
         double totalPay = totalHoursWorked* wage;
         //round totalPay
-        totalPay = Math.round(totalPay * 100.0) / 100.0;
-        System.out.println("Estimated Pay: " + totalPay);
+        totalPay = Math.round(totalPay * 100.00) / 100.00;
+//        System.out.println("Estimated Pay: " + totalPay);
+        calculatedPay = totalPay;
         return temp;
     }
 

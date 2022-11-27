@@ -10,7 +10,7 @@
         <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToRequestWindow" prefHeight="27.0" prefWidth="140.0" text="Request Edit" />
         <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
         <Button fx:id="SwitchToUpdateDetailsScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToUpdateWindow" prefHeight="27.0" prefWidth="140.0" text="Update Details" />
-        <TableView fx:id="timeSheetTable" layoutX="83.0" layoutY="138.0" prefHeight="200.0" prefWidth="628.0">
+        <TableView fx:id="timeSheetTable" layoutX="83.0" layoutY="177.0" prefHeight="200.0" prefWidth="628.0">
             <columns>
                 <TableColumn fx:id="timeRecordIDColumn" prefWidth="79.19998931884766" text="ID" />
                 <TableColumn fx:id="clockInColumn" prefWidth="101.60000610351562" text="Clock In" />
@@ -22,6 +22,7 @@
             </columns>
         </TableView>
 
-        <Button fx:id="viewTimesheetButton" layoutX="584.0" layoutY="336.0" mnemonicParsing="false"  onAction="#showLast5Days" text="View Timesheet" />
+        <Button fx:id="viewTimesheetButton" layoutX="611.0" layoutY="388.0" mnemonicParsing="false" onAction="#showLast5Days" text="View Timesheet" />
+      <Label fx:id="payLabel" alignment="CENTER" layoutX="156.0" layoutY="110.0" prefHeight="18.0" prefWidth="482.0" />
     </children>
 </AnchorPane>
