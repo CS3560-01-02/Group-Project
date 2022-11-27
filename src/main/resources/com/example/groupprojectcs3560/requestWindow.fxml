@@ -10,7 +10,7 @@
         <Button fx:id="SwitchToRequestEditScene" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Request Edit" />
         <Button fx:id="SwitchToViewTimesheetScene" layoutX="294.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToTimesheetWindow" prefHeight="27.0" prefWidth="140.0" text="View Timesheet" />
         <Button fx:id="SwitchToUpdateDetailsScene" layoutX="434.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToUpdateWindow" prefHeight="27.0" prefWidth="140.0" text="Update Details" />
-      <TextField fx:id="requestTextField" alignment="TOP_LEFT" layoutX="173.0" layoutY="126.0" prefHeight="163.0" prefWidth="447.0" promptText="Enter Request here" />
+      <TextArea fx:id="requestTextField" layoutX="173.0" layoutY="126.0" prefHeight="163.0" prefWidth="447.0" promptText="Enter Request here" />
       <Button fx:id="submitRequest" layoutX="568.0" layoutY="319.0" mnemonicParsing="false" onAction="#getRequestText" text="Submit" />
       <Label fx:id="requestConfirmationLabel" alignment="CENTER" layoutX="243.0" layoutY="78.0" prefHeight="18.0" prefWidth="308.0" />
     </children>

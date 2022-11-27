@@ -38,7 +38,7 @@ public class ViewRequestController {
     @FXML
     Button viewLatestRequest;
     @FXML
-    TextField fetchedRequest;
+    TextArea fetchedRequest;
     @FXML
     Button approveRequest;
     int requestID = -1;
@@ -47,6 +47,7 @@ public class ViewRequestController {
 
         fetchedRequest.setEditable(false);
         approveRequest.setDisable(true);
+        fetchedRequest.setWrapText(true);
     }
 
     public void getLatestRequest(ActionEvent event) throws IOException, SQLException {

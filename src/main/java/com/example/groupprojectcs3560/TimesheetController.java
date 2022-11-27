@@ -128,7 +128,7 @@ public class TimesheetController {
             clockInAttribute = rs.getString("shiftIn");
             clockOutAttribute = rs.getString("shiftOut");
             mealInAttribute = rs.getString("mealIn");
-            mealOutAttribute = rs.getString("mealIn");
+            mealOutAttribute = rs.getString("mealOut");
             timeWorked = rs.getString("timeWorked");
 
             hours =  Double.valueOf(timeWorked.substring(0,2));

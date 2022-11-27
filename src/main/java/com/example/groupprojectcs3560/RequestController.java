@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -22,10 +23,10 @@ public class RequestController {
     private Scene scene;
     private Parent root;
     @FXML
-    TextField requestTextField;
-
+    TextArea requestTextField;
     @FXML
     Label requestConfirmationLabel;
+
 
     int currentID = Employee.empID;
     public void switchToLoginWindow(ActionEvent event) throws IOException {
@@ -66,6 +67,10 @@ public class RequestController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void initialize() {
+        requestTextField.setWrapText(true);
     }
 
     public void getRequestText(ActionEvent event) throws IOException, SQLException {
