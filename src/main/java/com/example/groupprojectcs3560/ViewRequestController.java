@@ -42,6 +42,8 @@ public class ViewRequestController {
     @FXML
     Button approveRequest;
     int requestID = -1;
+    @FXML
+    Label employeeLabel;
 
     public void initialize() {
 
@@ -56,6 +58,11 @@ public class ViewRequestController {
         Connection conn = SQLConnection.databaseConnect();
         int currentID = Employee.empID;
         ResultSet rs = null;
+        ResultSet rs2 = null;
+        int requesterID = -1;
+        String requesterFirstName = "";
+        String requesterLastName = "";
+
 
         String sql = "SELECT * FROM request JOIN employee WHERE request.emp_id = employee.emp_id AND sup_id = " + currentID + " AND approved = 0 ORDER BY reqDate ASC limit 1;";
 
@@ -66,12 +73,23 @@ public class ViewRequestController {
         while (rs.next()) {
             requestDescription = rs.getString("description");
             requestID = rs.getInt("req_id");
+            requesterID = rs.getInt("emp_id");
+        }
+
+        String sql2 = "SELECT * FROM employee WHERE emp_id = '" + requesterID + "';";
+        PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
+        rs2 = preparedStatement2.executeQuery();
+
+        while (rs2.next()) {
+            requesterFirstName = rs2.getString("firstName");
+            requesterLastName = rs2.getString("lastName");
         }
 
         if (requestDescription.equals("")) {
             fetchedRequest.setText("No requests made");
         } else {
             fetchedRequest.setText(requestDescription);
+            employeeLabel.setText("Name: " + requesterFirstName + " " + requesterLastName + " | Employee ID: " + requesterID);
             approveRequest.setDisable(false);
         }
 
@@ -85,6 +103,7 @@ public class ViewRequestController {
         PreparedStatement preparedStatementTRUE = conn.prepareStatement(setApprovedToTrue);
         preparedStatementTRUE.executeUpdate();
 
+        employeeLabel.setText("Approved");
         approveRequest.setDisable(true);
         fetchedRequest.setText("");
     }

@@ -60,14 +60,14 @@ public class TimesheetController {
     double calculatedPay = 0;
 
 
-    private ObservableList<TimeWorkedTESTObject> TimeRecords = createTimeWorkedObservableList();
 
 
     public TimesheetController() throws SQLException {
     }
 
 
-    public void showLast5Days() {
+    public void showLast5Days() throws SQLException {
+        ObservableList<TimeWorkedTESTObject> TimeRecords = createTimeWorkedObservableList();
 
         timeRecordIDColumn.setCellValueFactory(new PropertyValueFactory<>("TimeIDForTimeSheet"));
         timeRecordDateColumn.setCellValueFactory(new PropertyValueFactory<>("DateWorked"));
