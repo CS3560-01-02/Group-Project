@@ -15,7 +15,7 @@
         <TextField fx:id="firstNameText" layoutX="322.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="First Name:" />
         <TextField fx:id="lastNameText" layoutX="322.0" layoutY="209.0" prefHeight="26.0" prefWidth="150.0" promptText="Last Name:" />
         <Button fx:id="submitButton" layoutX="344.0" layoutY="248.0" mnemonicParsing="false" onAction="#createEmployee" text="Create Employee" />
-      <Label fx:id="confirmationLabel" alignment="CENTER" layoutX="271.0" layoutY="126.0" prefHeight="18.0" prefWidth="250.0" />
+      <Label fx:id="confirmationLabel" alignment="CENTER" layoutX="145.0" layoutY="124.0" prefHeight="18.0" prefWidth="502.0" />
       <Button fx:id="changeJobButton" layoutX="567.0" layoutY="321.0" mnemonicParsing="false" onAction="#checkBoss" text="Demote/Promote" />
 
     </children>
