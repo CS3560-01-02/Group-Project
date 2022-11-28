@@ -123,6 +123,19 @@ public class EditTimeRecordController {
                 newMealOut = mealOutTextField.getText();
             }
 
+            //if any values are null, replace with '0:0:0'
+            if (newClockOut == null){
+                newClockOut = "0:0:0";
+            }
+
+            if (newMealIn == null){
+                newMealIn = "0:0:0";
+            }
+
+            if (newMealOut == null){
+                newMealOut = "0:0:0";
+            }
+
             //check valid time
             if (checkValidTimeRecord(newClockIn, newClockOut, newMealIn, newMealOut)){
                 //if valid, update db

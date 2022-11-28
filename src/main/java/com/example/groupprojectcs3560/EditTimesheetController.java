@@ -130,9 +130,29 @@ public class EditTimesheetController {
             mealOutAttribute = rs.getString("mealIn");
             timeWorked = rs.getString("timeWorked");
 
-            hours =  Double.valueOf(timeWorked.substring(0,2));
-            minutes = Double.valueOf(timeWorked.substring(3,5));
-            seconds = Double.valueOf(timeWorked.substring(6,8));
+            //replace any found nulls with '00:00:00'
+            if (clockOutAttribute == null) {
+                clockOutAttribute = "00:00:00";
+            }
+
+            if (mealInAttribute == null) {
+                mealInAttribute = "00:00:00";
+            }
+
+            if (mealOutAttribute == null) {
+                mealOutAttribute = "00:00:00";
+            }
+
+            if (timeWorked != null) {
+                hours =  Double.valueOf(timeWorked.substring(0,2));
+                minutes = Double.valueOf(timeWorked.substring(3,5));
+                seconds = Double.valueOf(timeWorked.substring(6,8));
+            } else {
+                hours = 0;
+                minutes = 0;
+                seconds = 0;
+            }
+
 
             actualHoursWorked = hours + (minutes/60) + (seconds/360);
 
